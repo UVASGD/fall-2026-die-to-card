@@ -1,2 +1,5 @@
-# ProjectTemplate
-This is a project template for SGD semester projects.
+# Die to Card!!!
+
+It's gaming time. Or something.
+...
+Mostly just gambling honestly.
