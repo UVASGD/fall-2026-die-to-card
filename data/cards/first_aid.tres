@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ActionCard" format=3 uid="uid://bpojcusgll3vs"]
+
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="1_0sh0q"]
+[ext_resource type="Script" uid="uid://p3x30n8fugit" path="res://combat/card/action_card.gd" id="2_pwtde"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hehyl"]
+resource_local_to_scene = true
+atlas = ExtResource("1_0sh0q")
+region = Rect2(33, 82, 26, 12)
+filter_clip = true
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_pwtde")
+name = "First-Aid"
+portrait = SubResource("AtlasTexture_hehyl")
+actions = Dictionary[String, Dictionary]({
+"move": {
+"diceslot": {
+"dice": null
+},
+"focus": false,
+"intent": 3,
+"text": "Heal unit 1",
+"value": 1
+}
+})

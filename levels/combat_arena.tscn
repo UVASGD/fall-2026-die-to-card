@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cutnrcn078gls"]
+
+[ext_resource type="Script" uid="uid://b1e2csp7osjlj" path="res://levels/combat_level.gd" id="1_ihiun"]
+[ext_resource type="PackedScene" uid="uid://mjv25873fqxr" path="res://combat/combat_grid.tscn" id="2_ihiun"]
+
+[node name="CombatArena" type="Node2D" unique_id=1978857396 node_paths=PackedStringArray("combat_grid")]
+script = ExtResource("1_ihiun")
+combat_grid = NodePath("CombatGrid")
+is_combat = true
+
+[node name="CombatGrid" parent="." unique_id=1915692035 instance=ExtResource("2_ihiun")]
+position = Vector2(128, 80)

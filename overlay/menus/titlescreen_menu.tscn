@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c08m6jqvkj53w"]
+
+[ext_resource type="Theme" uid="uid://b580btorccrsm" path="res://assets/ui/base_theme.tres" id="1_7c6wt"]
+[ext_resource type="Script" uid="uid://dpl3rqwlp7ua2" path="res://overlay/menus/titlescreen_menu.gd" id="1_j0afb"]
+
+[node name="TitlescreenMenu" type="Control" unique_id=1012544821]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0afb")
+
+[node name="MainCenter" type="CenterContainer" parent="." unique_id=810527109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="MainCenter" unique_id=1700977029]
+layout_mode = 2
+
+[node name="TitleMargins" type="MarginContainer" parent="MainCenter/MainVBox" unique_id=224265516]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="TitleLabel" type="Label" parent="MainCenter/MainVBox/TitleMargins" unique_id=613634464]
+layout_mode = 2
+text = "big title goes here"
+
+[node name="GameButton" type="Button" parent="MainCenter/MainVBox" unique_id=2125077789]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_7c6wt")
+text = "do game"
+
+[node name="SettingsButton" type="Button" parent="MainCenter/MainVBox" unique_id=954779063]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_7c6wt")
+text = "do settings"
+
+[node name="CreditsButton" type="Button" parent="MainCenter/MainVBox" unique_id=2010226965]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_7c6wt")
+text = "do credits"
+
+[connection signal="pressed" from="MainCenter/MainVBox/GameButton" to="." method="_on_game_button_pressed"]

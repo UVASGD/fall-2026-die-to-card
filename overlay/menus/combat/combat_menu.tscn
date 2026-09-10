@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://b4720mj7xepuf"]
+
+[ext_resource type="Script" uid="uid://dyea75yddwhtg" path="res://overlay/menus/combat/combat_menu.gd" id="1_x5qjl"]
+[ext_resource type="Script" uid="uid://niohug5vhf6x" path="res://overlay/menus/combat/card_manager.gd" id="2_30mjt"]
+[ext_resource type="Script" uid="uid://b3w4nbnl71wm1" path="res://overlay/menus/combat/unit_selection.gd" id="2_x5qjl"]
+[ext_resource type="Script" uid="uid://dfsnd7wkofwqn" path="res://overlay/menus/combat/tooltip.gd" id="3_hily0"]
+
+[sub_resource type="Curve" id="Curve_310ai"]
+_data = [Vector2(0, 0.15591401), 0.0, 2.0, 0, 0, Vector2(0.502439, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.14516127), -2.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_qu814"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="CombatMenu" type="Control" unique_id=1437522957]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x5qjl")
+
+[node name="PlayerBar" type="PanelContainer" parent="." unique_id=692951478]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerBar" unique_id=1420286960]
+layout_mode = 2
+alignment = 2
+
+[node name="CardManager" type="Node" parent="PlayerBar/HBoxContainer" unique_id=1299076148]
+script = ExtResource("2_30mjt")
+hand_curve = SubResource("Curve_310ai")
+rotation_curve = SubResource("Curve_qu814")
+
+[node name="Discard Space" type="PanelContainer" parent="PlayerBar/HBoxContainer" unique_id=300704915]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/Discard Space" unique_id=1144716481]
+modulate = Color(1, 1, 1, 0.16862746)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Discard"
+horizontal_alignment = 1
+
+[node name="DiscardMargin" type="MarginContainer" parent="PlayerBar/HBoxContainer/Discard Space" unique_id=803490158]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+
+[node name="PlayerDiscard" type="Control" parent="PlayerBar/HBoxContainer/Discard Space/DiscardMargin" unique_id=224065239]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Pos" type="Marker2D" parent="PlayerBar/HBoxContainer/Discard Space/DiscardMargin/PlayerDiscard" unique_id=462421471]
+
+[node name="DESpace" type="PanelContainer" parent="PlayerBar/HBoxContainer" unique_id=563913667]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/DESpace" unique_id=765335371]
+modulate = Color(1, 1, 1, 0.08235294)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Deployment and Command"
+horizontal_alignment = 1
+
+[node name="HandMargin" type="MarginContainer" parent="PlayerBar/HBoxContainer/DESpace" unique_id=1686371657]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+
+[node name="PlayerHand" type="Control" parent="PlayerBar/HBoxContainer/DESpace/HandMargin" unique_id=344016012]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Pos" type="Marker2D" parent="PlayerBar/HBoxContainer/DESpace/HandMargin/PlayerHand" unique_id=50368787]
+
+[node name="UnitSelection" type="ItemList" parent="PlayerBar/HBoxContainer/DESpace" unique_id=31093666]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+allow_reselect = true
+allow_search = false
+max_text_lines = 2
+auto_width = true
+text_overrun_behavior = 0
+max_columns = 10
+fixed_column_width = 60
+icon_mode = 0
+script = ExtResource("2_x5qjl")
+
+[node name="DeckSpace" type="PanelContainer" parent="PlayerBar/HBoxContainer" unique_id=1401831956]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/DeckSpace" unique_id=2117810401]
+modulate = Color(1, 1, 1, 0.16862746)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Deck"
+horizontal_alignment = 1
+
+[node name="DeckMargin" type="MarginContainer" parent="PlayerBar/HBoxContainer/DeckSpace" unique_id=309938773]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+
+[node name="PlayerDeck" type="Control" parent="PlayerBar/HBoxContainer/DeckSpace/DeckMargin" unique_id=117332929]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Pos" type="Marker2D" parent="PlayerBar/HBoxContainer/DeckSpace/DeckMargin/PlayerDeck" unique_id=1606848059]
+
+[node name="DiceRiver" type="PanelContainer" parent="." unique_id=1855643069]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DiceRiver" unique_id=1883693227]
+layout_mode = 2
+
+[node name="PlayerPool" type="PanelContainer" parent="DiceRiver/HBoxContainer" unique_id=257565817]
+custom_minimum_size = Vector2(160, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DiceRiver/HBoxContainer/PlayerPool" unique_id=462974651]
+layout_mode = 2
+text = "Player Dice Pool"
+horizontal_alignment = 1
+
+[node name="EnemyPool" type="PanelContainer" parent="DiceRiver/HBoxContainer" unique_id=627501786]
+custom_minimum_size = Vector2(160, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DiceRiver/HBoxContainer/EnemyPool" unique_id=2117232478]
+layout_mode = 2
+text = "Enemy Dice Pool"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1661193295]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_vertical = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 40
+
+[node name="PlayerCommand" type="PanelContainer" parent="MarginContainer" unique_id=73327735]
+custom_minimum_size = Vector2(100, 160)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PlayerCommand" unique_id=621190906]
+modulate = Color(1, 1, 1, 0.05490196)
+layout_mode = 2
+text = "Player
+Command
+Post"
+horizontal_alignment = 1
+
+[node name="Tooltip" type="RichTextLabel" parent="MarginContainer/PlayerCommand" unique_id=1323290764]
+layout_mode = 2
+script = ExtResource("3_hily0")
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=2143245199]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 40
+
+[node name="EnemyCommand" type="PanelContainer" parent="MarginContainer2" unique_id=2074388977]
+custom_minimum_size = Vector2(100, 160)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/EnemyCommand" unique_id=1113887579]
+layout_mode = 2
+text = "Enemy
+Command
+Post"
+horizontal_alignment = 1
+
+[node name="PlayerResources" type="VBoxContainer" parent="." unique_id=1085216453]
+layout_mode = 1
+offset_right = 78.0
+offset_bottom = 49.0
+
+[node name="Reserves" type="Label" parent="PlayerResources" unique_id=2050220610]
+layout_mode = 2
+text = "Reserves: #"
+horizontal_alignment = 1
+
+[node name="Health" type="Label" parent="PlayerResources" unique_id=119129514]
+layout_mode = 2
+text = "Health: ##"
+horizontal_alignment = 1
+
+[node name="EnemyResources" type="VBoxContainer" parent="." unique_id=1815054956]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="Reserves" type="Label" parent="EnemyResources" unique_id=1436530853]
+layout_mode = 2
+text = "Reserves: #"
+horizontal_alignment = 1
+
+[node name="Health" type="Label" parent="EnemyResources" unique_id=1705043099]
+layout_mode = 2
+text = "Health: ##"
+horizontal_alignment = 1
+
+[connection signal="item_selected" from="PlayerBar/HBoxContainer/DESpace/UnitSelection" to="PlayerBar/HBoxContainer/DESpace/UnitSelection" method="_on_item_selected"]

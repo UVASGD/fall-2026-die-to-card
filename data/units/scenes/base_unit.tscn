@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b0c8ob13otbsf"]
+
+[ext_resource type="Script" uid="uid://oehp8wxrgocl" path="res://combat/unit/unit.gd" id="1_3dtal"]
+[ext_resource type="Script" uid="uid://bvoibweo8641m" path="res://combat/unit/unit_data.gd" id="2_vdcqi"]
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="3_i6tik"]
+[ext_resource type="PackedScene" uid="uid://b3yx6xnubrg0e" path="res://combat/unit/intent_display.tscn" id="4_v1ps5"]
+[ext_resource type="Script" uid="uid://bcbasl5emgwx0" path="res://combat/unit/intent_display.gd" id="5_mrl5x"]
+
+[sub_resource type="Resource" id="Resource_i6tik"]
+script = ExtResource("2_vdcqi")
+unit_uid = "uid://b0c8ob13otbsf"
+name = "base"
+max_health = 7
+speed = 7
+defense = 7
+auto_card = "null"
+metadata/_custom_type_script = "uid://bvoibweo8641m"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrl5x"]
+atlas = ExtResource("3_i6tik")
+region = Rect2(52, 70, 24, 24)
+
+[node name="BaseUnit" type="Node2D" unique_id=793741451 node_paths=PackedStringArray("intent_display")]
+script = ExtResource("1_3dtal")
+unit_data = SubResource("Resource_i6tik")
+select_icon = SubResource("AtlasTexture_mrl5x")
+intent_display = NodePath("IntentDisplay")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=746202254]
+scale = Vector2(0.22558594, 0.22265624)
+texture = ExtResource("3_i6tik")
+
+[node name="IntentDisplay" parent="." unique_id=1846889741 instance=ExtResource("4_v1ps5")]
+offset_left = 8.0
+offset_top = 14.0
+offset_right = 8.0
+offset_bottom = 14.0
+script = ExtResource("5_mrl5x")

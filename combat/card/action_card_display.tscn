@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b8nnn0fw630u5"]
+
+[ext_resource type="Script" uid="uid://dsyteei7p3q6w" path="res://combat/card/action_card_display.gd" id="1_310ai"]
+[ext_resource type="Theme" uid="uid://daa3l60i5i78n" path="res://assets/ui/base_card_theme.tres" id="1_qu814"]
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="2_qu814"]
+[ext_resource type="PackedScene" uid="uid://dygcl7f4ktt3v" path="res://combat/card/action_card_display_action.tscn" id="3_6v80o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e5g4"]
+atlas = ExtResource("2_qu814")
+region = Rect2(76, 56, 19, 19)
+
+[node name="ActionCardDisplay" type="PanelContainer" unique_id=206985785]
+self_modulate = Color(0, 4.888649, 3.2899222, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -60.0
+offset_right = 45.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_qu814")
+script = ExtResource("1_310ai")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=57281473]
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Name" type="Label" parent="VBox" unique_id=395463234]
+texture_filter = 3
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "I CAST FIREBALL"
+horizontal_alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="VBox" unique_id=8421929]
+custom_minimum_size = Vector2(58, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_0e5g4")
+expand_mode = 1
+
+[node name="ActionMargin" type="MarginContainer" parent="VBox" unique_id=1626282466]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+
+[node name="ActionBox" type="VBoxContainer" parent="VBox/ActionMargin" unique_id=1169394045]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="DisplayAction1" parent="VBox/ActionMargin/ActionBox" unique_id=760681176 instance=ExtResource("3_6v80o")]
+layout_mode = 2
+
+[node name="DisplayAction2" parent="VBox/ActionMargin/ActionBox" unique_id=625930067 instance=ExtResource("3_6v80o")]
+layout_mode = 2

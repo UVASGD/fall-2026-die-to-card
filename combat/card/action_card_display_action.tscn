@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dygcl7f4ktt3v"]
+
+[ext_resource type="Script" uid="uid://bvdbvy80vid4o" path="res://combat/card/action_card_display_action.gd" id="1_u671a"]
+[ext_resource type="Theme" uid="uid://daa3l60i5i78n" path="res://assets/ui/base_card_theme.tres" id="1_vvrqv"]
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="1_ybj6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlxkr"]
+resource_local_to_scene = true
+atlas = ExtResource("1_ybj6x")
+region = Rect2(79, 60, 12, 12)
+filter_clip = true
+
+[node name="DisplayAction" type="HBoxContainer" unique_id=760681176]
+offset_right = 94.0
+offset_bottom = 20.0
+size_flags_horizontal = 0
+theme = ExtResource("1_vvrqv")
+theme_override_constants/separation = 2
+script = ExtResource("1_u671a")
+
+[node name="DiceButton" type="TextureButton" parent="." unique_id=1236701277]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_tlxkr")
+
+[node name="ActionText" type="Label" parent="." unique_id=334802928]
+texture_filter = 3
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 20)
+custom_maximum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 8
+text = "showing how large this box is hey maybe we should make this box just a bit bigger"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="DiceButton" to="." method="_on_dice_button_pressed"]

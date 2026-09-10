@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ActionCard" format=3 uid="uid://du4sqdw1jv461"]
+
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="1_2vctd"]
+[ext_resource type="Script" uid="uid://p3x30n8fugit" path="res://combat/card/action_card.gd" id="2_7y00n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hehyl"]
+resource_local_to_scene = true
+atlas = ExtResource("1_2vctd")
+region = Rect2(61, 60, 6, 17)
+filter_clip = true
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_7y00n")
+name = "Guard"
+portrait = SubResource("AtlasTexture_hehyl")
+actions = Dictionary[String, Dictionary]({
+"defend": {
+"diceslot": {
+"dice": null
+},
+"focus": false,
+"intent": 2,
+"text": "Block 1 damage",
+"value": 1
+}
+})

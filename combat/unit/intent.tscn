@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bo5hx1dgsgpgl"]
+
+[ext_resource type="Texture2D" uid="uid://ckbwpf24km573" path="res://assets/art/debug/debug_intents.png" id="1_e6red"]
+[ext_resource type="Script" uid="uid://bscjssrnkn116" path="res://combat/unit/intent.gd" id="1_pgnx1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v3rg"]
+atlas = ExtResource("1_e6red")
+region = Rect2(0, 0, 8, 8)
+filter_clip = true
+
+[node name="Intent" type="Control" unique_id=624691197]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pgnx1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=562436947]
+custom_minimum_size = Vector2(7, 7)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -3.5
+offset_right = 3.5
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_4v3rg")
+expand_mode = 1
+
+[node name="Value" type="Label" parent="." unique_id=954695688]
+modulate = Color(3.5141394, 3.5141394, 3.5141394, 1)
+custom_minimum_size = Vector2(12, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 7.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1

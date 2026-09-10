@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b7tl05xrsdl2l"]
+
+[ext_resource type="Script" uid="uid://bejpav2uk68y5" path="res://combat/card/action_card_display_event.gd" id="1_q4fug"]
+
+[node name="DisplayAction" type="HBoxContainer" unique_id=760681176]
+offset_right = 68.0
+offset_bottom = 21.0
+size_flags_horizontal = 0
+theme_override_constants/separation = 2
+script = ExtResource("1_q4fug")
+
+[node name="EventText" type="Label" parent="." unique_id=334802928]
+custom_minimum_size = Vector2(0, 20)
+custom_maximum_size = Vector2(54, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 4
+text = "showing how large this box is hey maybe we should make this box just a bit big-"
+vertical_alignment = 1
+autowrap_mode = 3

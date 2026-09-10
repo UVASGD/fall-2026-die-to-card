@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CombatEncounter" format=3 uid="uid://dg14c5hfapaia"]
+
+[ext_resource type="Script" uid="uid://buuuhklescd24" path="res://levels/encounters/combat_encounter.gd" id="1_85kyv"]
+[ext_resource type="Resource" uid="uid://dgojfsn5wvidh" path="res://data/playsets/testset.tres" id="1_uxbik"]
+[ext_resource type="Resource" uid="uid://cg1p16d104oib" path="res://data/terrain/open_field.tres" id="2_u6tjp"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_85kyv")
+terrain_map = ExtResource("2_u6tjp")
+enemy_playset = ExtResource("1_uxbik")
+enemy_health = 10
+type = 0
+metadata/_custom_type_script = "uid://buuuhklescd24"

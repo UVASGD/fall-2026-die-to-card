@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ActionCard" format=3 uid="uid://bgjs1ul0sqfxg"]
+
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="1_bn70a"]
+[ext_resource type="Script" uid="uid://p3x30n8fugit" path="res://combat/card/action_card.gd" id="2_ivp4s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hehyl"]
+resource_local_to_scene = true
+atlas = ExtResource("1_bn70a")
+region = Rect2(41, 14, 46, 26)
+filter_clip = true
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_ivp4s")
+name = "TEST"
+portrait = SubResource("AtlasTexture_hehyl")
+actions = Dictionary[String, Dictionary]({
+"attack": {
+"diceslot": {
+"dice": null
+},
+"focus": false,
+"intent": 1,
+"text": "hoiiiyaaah",
+"value": 1
+},
+"move": {
+"diceslot": {
+"dice": null
+},
+"focus": false,
+"intent": 4,
+"text": "vroom",
+"value": 2
+}
+})

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://bfhm16dqf0kyd"]
+
+[ext_resource type="Script" uid="uid://bvoibweo8641m" path="res://combat/unit/unit_data.gd" id="1_iiual"]
+
+[resource]
+script = ExtResource("1_iiual")
+unit_uid = "uid://b0c8ob13otbsf"
+name = "scout"
+max_health = 1
+speed = 3
+auto_card = "null"
+cost = 1
+metadata/_custom_type_script = "uid://bvoibweo8641m"

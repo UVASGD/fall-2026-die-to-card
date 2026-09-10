@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://xo3whqjkndfw"]
+
+[ext_resource type="Script" uid="uid://cmkrncyq6wq76" path="res://core/world.gd" id="1_ccd7m"]
+[ext_resource type="PackedScene" uid="uid://be8uufjh0lvxv" path="res://levels/titlescreen.tscn" id="2_ccd7m"]
+[ext_resource type="PackedScene" uid="uid://c08m6jqvkj53w" path="res://overlay/menus/titlescreen_menu.tscn" id="3_e68cy"]
+
+[node name="World" type="Node2D" unique_id=1561945457]
+script = ExtResource("1_ccd7m")
+
+[node name="LevelHolder" type="Node2D" parent="." unique_id=749118166]
+
+[node name="Titlescreen" parent="LevelHolder" unique_id=1812344765 instance=ExtResource("2_ccd7m")]
+
+[node name="OverlayLayer" type="CanvasLayer" parent="." unique_id=1599992563]
+
+[node name="TitlescreenMenu" parent="OverlayLayer" unique_id=1012544821 instance=ExtResource("3_e68cy")]
