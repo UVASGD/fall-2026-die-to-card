@@ -23,6 +23,8 @@ var highlight_atlas : Dictionary[String,Vector2] = {
 var tile_atlas : Dictionary[int,Vector2i] = {
 	1 : Vector2i(1,0) #plains (numbers based off of CombatTile.TYPE)
 }
+#flag to be controlled by combatmanager for when hovering over a tile should highlight it
+var mouse_highlight : bool = false
 
 #stores terrain data
 @onready var terrain_grid : Array[Array] = []
@@ -38,6 +40,9 @@ func _ready():
 		terrain_grid.append([])
 		for j in grid_size.y:
 			terrain_grid.get(i).append(null)
+
+func _input(event: InputEvent) -> void:
+	pass
 
 func get_combat_tile(coords : Vector2i) -> CombatTile:
 	var array : Array = terrain_grid.get(coords.x)

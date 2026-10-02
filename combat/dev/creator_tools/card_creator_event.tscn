@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dq05mkc5x84gc"]
-
-[ext_resource type="Script" uid="uid://chtywtfw8e5x" path="res://combat/dev/creator_tools/card_creator_event.gd" id="1_0jwd3"]
-
-[node name="CardCreatorEvent" type="Node" unique_id=349055297]
-script = ExtResource("1_0jwd3")

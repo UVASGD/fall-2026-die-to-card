@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://niohug5vhf6x" path="res://overlay/menus/combat/card_manager.gd" id="2_30mjt"]
 [ext_resource type="Script" uid="uid://b3w4nbnl71wm1" path="res://overlay/menus/combat/unit_selection.gd" id="2_x5qjl"]
 [ext_resource type="Script" uid="uid://dfsnd7wkofwqn" path="res://overlay/menus/combat/tooltip.gd" id="3_hily0"]
+[ext_resource type="Theme" uid="uid://b580btorccrsm" path="res://assets/ui/base_theme.tres" id="5_chr56"]
 
 [sub_resource type="Curve" id="Curve_310ai"]
 _data = [Vector2(0, 0.15591401), 0.0, 2.0, 0, 0, Vector2(0.502439, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.14516127), -2.0, 0.0, 0, 0]
@@ -13,6 +14,10 @@ point_count = 3
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, -1), 0.0, 2.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chr56"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_30mjt"]
 
 [node name="CombatMenu" type="Control" unique_id=1437522957]
 layout_mode = 3
@@ -44,7 +49,15 @@ rotation_curve = SubResource("Curve_qu814")
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/Discard Space" unique_id=1144716481]
+[node name="DiscardMargin" type="MarginContainer" parent="PlayerBar/HBoxContainer/Discard Space" unique_id=803490158]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="PlayerDiscardMat" type="Panel" parent="PlayerBar/HBoxContainer/Discard Space/DiscardMargin" unique_id=1516172045]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/Discard Space/DiscardMargin" unique_id=1144716481]
 modulate = Color(1, 1, 1, 0.16862746)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -52,40 +65,14 @@ size_flags_vertical = 8
 text = "Discard"
 horizontal_alignment = 1
 
-[node name="DiscardMargin" type="MarginContainer" parent="PlayerBar/HBoxContainer/Discard Space" unique_id=803490158]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 0
-
-[node name="PlayerDiscard" type="Control" parent="PlayerBar/HBoxContainer/Discard Space/DiscardMargin" unique_id=224065239]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="Pos" type="Marker2D" parent="PlayerBar/HBoxContainer/Discard Space/DiscardMargin/PlayerDiscard" unique_id=462421471]
-
 [node name="DESpace" type="PanelContainer" parent="PlayerBar/HBoxContainer" unique_id=563913667]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/DESpace" unique_id=765335371]
-modulate = Color(1, 1, 1, 0.08235294)
+[node name="PlayerMat" type="Panel" parent="PlayerBar/HBoxContainer/DESpace" unique_id=1078603901]
 layout_mode = 2
-size_flags_vertical = 8
-text = "Deployment and Command"
-horizontal_alignment = 1
 
-[node name="HandMargin" type="MarginContainer" parent="PlayerBar/HBoxContainer/DESpace" unique_id=1686371657]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 0
-
-[node name="PlayerHand" type="Control" parent="PlayerBar/HBoxContainer/DESpace/HandMargin" unique_id=344016012]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="Pos" type="Marker2D" parent="PlayerBar/HBoxContainer/DESpace/HandMargin/PlayerHand" unique_id=50368787]
+[node name="PlayerHandPos" type="Marker2D" parent="PlayerBar/HBoxContainer/DESpace/PlayerMat" unique_id=1839607493]
 
 [node name="UnitSelection" type="ItemList" parent="PlayerBar/HBoxContainer/DESpace" unique_id=31093666]
 visible = false
@@ -101,29 +88,33 @@ fixed_column_width = 60
 icon_mode = 0
 script = ExtResource("2_x5qjl")
 
+[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/DESpace" unique_id=765335371]
+modulate = Color(1, 1, 1, 0.08235294)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Deployment and Command"
+horizontal_alignment = 1
+
 [node name="DeckSpace" type="PanelContainer" parent="PlayerBar/HBoxContainer" unique_id=1401831956]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/DeckSpace" unique_id=2117810401]
+[node name="DeckMargin" type="MarginContainer" parent="PlayerBar/HBoxContainer/DeckSpace" unique_id=309938773]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+
+[node name="PlayerDeckMat" type="Panel" parent="PlayerBar/HBoxContainer/DeckSpace/DeckMargin" unique_id=1508265010]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerBar/HBoxContainer/DeckSpace/DeckMargin" unique_id=2117810401]
 modulate = Color(1, 1, 1, 0.16862746)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Deck"
 horizontal_alignment = 1
-
-[node name="DeckMargin" type="MarginContainer" parent="PlayerBar/HBoxContainer/DeckSpace" unique_id=309938773]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 0
-
-[node name="PlayerDeck" type="Control" parent="PlayerBar/HBoxContainer/DeckSpace/DeckMargin" unique_id=117332929]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="Pos" type="Marker2D" parent="PlayerBar/HBoxContainer/DeckSpace/DeckMargin/PlayerDeck" unique_id=1606848059]
 
 [node name="DiceRiver" type="PanelContainer" parent="." unique_id=1855643069]
 layout_mode = 1
@@ -139,7 +130,7 @@ grow_horizontal = 2
 layout_mode = 2
 
 [node name="PlayerPool" type="PanelContainer" parent="DiceRiver/HBoxContainer" unique_id=257565817]
-custom_minimum_size = Vector2(160, 64)
+custom_minimum_size = Vector2(160, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="DiceRiver/HBoxContainer/PlayerPool" unique_id=462974651]
@@ -148,7 +139,7 @@ text = "Player Dice Pool"
 horizontal_alignment = 1
 
 [node name="EnemyPool" type="PanelContainer" parent="DiceRiver/HBoxContainer" unique_id=627501786]
-custom_minimum_size = Vector2(160, 64)
+custom_minimum_size = Vector2(160, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="DiceRiver/HBoxContainer/EnemyPool" unique_id=2117232478]
@@ -169,7 +160,7 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 40
 
 [node name="PlayerCommand" type="PanelContainer" parent="MarginContainer" unique_id=73327735]
-custom_minimum_size = Vector2(100, 160)
+custom_minimum_size = Vector2(120, 160)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PlayerCommand" unique_id=621190906]
@@ -183,6 +174,17 @@ horizontal_alignment = 1
 [node name="Tooltip" type="RichTextLabel" parent="MarginContainer/PlayerCommand" unique_id=1323290764]
 layout_mode = 2
 script = ExtResource("3_hily0")
+
+[node name="SideMargins" type="MarginContainer" parent="MarginContainer/PlayerCommand" unique_id=23978456]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="SideSlotMat" type="Panel" parent="MarginContainer/PlayerCommand/SideMargins" unique_id=128131066]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_chr56")
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=2143245199]
 layout_mode = 1
@@ -200,7 +202,7 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 40
 
 [node name="EnemyCommand" type="PanelContainer" parent="MarginContainer2" unique_id=2074388977]
-custom_minimum_size = Vector2(100, 160)
+custom_minimum_size = Vector2(120, 160)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer2/EnemyCommand" unique_id=1113887579]
@@ -244,4 +246,55 @@ layout_mode = 2
 text = "Health: ##"
 horizontal_alignment = 1
 
+[node name="CenterOffset" type="MarginContainer" parent="." unique_id=1262517844]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -90.0
+offset_right = 150.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 60
+
+[node name="SelectPanel" type="Panel" parent="CenterOffset" unique_id=112771045]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterOffset" unique_id=336758681]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="SelectText" type="RichTextLabel" parent="CenterOffset/VBoxContainer" unique_id=1455887255]
+custom_minimum_size = Vector2(300, 40)
+custom_maximum_size = Vector2(300, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_chr56")
+text = "Select Text Here
+"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectConfirmButton" type="Button" parent="CenterOffset/VBoxContainer" unique_id=411051319]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_chr56")
+text = "Confirm"
+
+[node name="SelectMat" type="Panel" parent="CenterOffset/VBoxContainer" unique_id=842045599]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_30mjt")
+
 [connection signal="item_selected" from="PlayerBar/HBoxContainer/DESpace/UnitSelection" to="PlayerBar/HBoxContainer/DESpace/UnitSelection" method="_on_item_selected"]
+[connection signal="pressed" from="CenterOffset/VBoxContainer/SelectConfirmButton" to="PlayerBar/HBoxContainer/CardManager" method="_on_select_confirm_button_pressed"]

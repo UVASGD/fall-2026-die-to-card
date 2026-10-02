@@ -10,7 +10,7 @@ atlas = ExtResource("2_qu814")
 region = Rect2(76, 56, 19, 19)
 
 [node name="ActionCardDisplay" type="PanelContainer" unique_id=206985785]
-self_modulate = Color(0, 4.888649, 3.2899222, 1)
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
 z_index = 3
 custom_minimum_size = Vector2(96, 124)
 custom_maximum_size = Vector2(96, 124)
@@ -19,10 +19,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = -60.0
-offset_right = 45.0
-offset_bottom = 60.0
+offset_left = -50.0
+offset_top = -65.0
+offset_right = 50.0
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -31,13 +31,17 @@ size_flags_vertical = 4
 theme = ExtResource("1_qu814")
 script = ExtResource("1_310ai")
 
-[node name="VBox" type="VBoxContainer" parent="." unique_id=57281473]
+[node name="AllVBox" type="VBoxContainer" parent="." unique_id=57281473]
 custom_minimum_size = Vector2(96, 124)
 custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Name" type="Label" parent="VBox" unique_id=395463234]
+[node name="NameMargin" type="MarginContainer" parent="AllVBox" unique_id=1351365196]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="Name" type="Label" parent="AllVBox/NameMargin" unique_id=395463234]
 texture_filter = 3
 layout_mode = 2
 size_flags_horizontal = 4
@@ -46,25 +50,29 @@ theme_override_font_sizes/font_size = 8
 text = "I CAST FIREBALL"
 horizontal_alignment = 1
 
-[node name="Portrait" type="TextureRect" parent="VBox" unique_id=8421929]
-custom_minimum_size = Vector2(58, 30)
+[node name="Portrait" type="TextureRect" parent="AllVBox" unique_id=8421929]
+custom_minimum_size = Vector2(60, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("AtlasTexture_0e5g4")
 expand_mode = 1
 
-[node name="ActionMargin" type="MarginContainer" parent="VBox" unique_id=1626282466]
+[node name="ActionMargin" type="MarginContainer" parent="AllVBox" unique_id=1626282466]
 layout_mode = 2
 theme_override_constants/margin_left = 1
 
-[node name="ActionBox" type="VBoxContainer" parent="VBox/ActionMargin" unique_id=1169394045]
+[node name="ActionBox" type="VBoxContainer" parent="AllVBox/ActionMargin" unique_id=1169394045]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="DisplayAction1" parent="VBox/ActionMargin/ActionBox" unique_id=760681176 instance=ExtResource("3_6v80o")]
+[node name="DisplayAction1" parent="AllVBox/ActionMargin/ActionBox" unique_id=760681176 instance=ExtResource("3_6v80o")]
 layout_mode = 2
 
-[node name="DisplayAction2" parent="VBox/ActionMargin/ActionBox" unique_id=625930067 instance=ExtResource("3_6v80o")]
+[node name="DisplayAction2" parent="AllVBox/ActionMargin/ActionBox" unique_id=625930067 instance=ExtResource("3_6v80o")]
 layout_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

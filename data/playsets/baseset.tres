@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Playset" format=3 uid="uid://b2datigqkegl2"]
+
+[ext_resource type="Script" uid="uid://p3x30n8fugit" path="res://combat/card/action_card.gd" id="1_2w6va"]
+[ext_resource type="Resource" uid="uid://cmsf1u7ve8uvm" path="res://data/cards/BaseAttack.tres" id="2_h1qjk"]
+[ext_resource type="Resource" uid="uid://b6fmu2hhbq6l7" path="res://data/cards/BaseDefend.tres" id="3_4gacw"]
+[ext_resource type="Resource" uid="uid://cjbgs6ou82m0w" path="res://data/cards/BaseHeal.tres" id="4_pqjvs"]
+[ext_resource type="Resource" uid="uid://c4j2pchtcbxf0" path="res://data/cards/BaseMove.tres" id="5_itli7"]
+[ext_resource type="Script" uid="uid://hrqv03ruca3f" path="res://combat/playset/playset.gd" id="6_j8px1"]
+[ext_resource type="Script" uid="uid://bvoibweo8641m" path="res://combat/unit/unit_data.gd" id="7_bl6um"]
+[ext_resource type="Resource" uid="uid://t2mrfi46oapb" path="res://data/units/soldier.tres" id="8_o6c0p"]
+[ext_resource type="Resource" uid="uid://cvktukq0bc4m0" path="res://data/units/tank.tres" id="9_p772p"]
+[ext_resource type="Resource" uid="uid://bfhm16dqf0kyd" path="res://data/units/scout.tres" id="10_1n6tp"]
+
+[resource]
+script = ExtResource("6_j8px1")
+units = Array[ExtResource("7_bl6um")]([ExtResource("8_o6c0p"), ExtResource("9_p772p"), ExtResource("10_1n6tp")])
+deck = Array[ExtResource("1_2w6va")]([ExtResource("2_h1qjk"), ExtResource("2_h1qjk"), ExtResource("2_h1qjk"), ExtResource("2_h1qjk"), ExtResource("3_4gacw"), ExtResource("3_4gacw"), ExtResource("3_4gacw"), ExtResource("3_4gacw"), ExtResource("4_pqjvs"), ExtResource("4_pqjvs"), ExtResource("4_pqjvs"), ExtResource("4_pqjvs"), ExtResource("5_itli7"), ExtResource("5_itli7"), ExtResource("5_itli7"), ExtResource("5_itli7")])

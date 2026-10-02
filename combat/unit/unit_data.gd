@@ -9,5 +9,6 @@ extends Resource
 @export var max_health : int
 @export var speed : int
 @export var defense : int
-@export var auto_card : ActionCard
+@export var auto_action : CardAction
 @export var cost : int
+@export var unit_class : Unit.UNIT_CLASS = Unit.UNIT_CLASS.NONE

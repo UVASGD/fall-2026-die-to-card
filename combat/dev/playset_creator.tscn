@@ -2,20 +2,19 @@
 
 [ext_resource type="Script" uid="uid://dh2gbypv3yp6l" path="res://combat/dev/playset_creator.gd" id="1_xt0ci"]
 [ext_resource type="PackedScene" uid="uid://b8nnn0fw630u5" path="res://combat/card/action_card_display.tscn" id="2_s83y7"]
-[ext_resource type="Resource" uid="uid://c7t3id0j6lcvj" path="res://data/cards/walk.tres" id="3_iytb4"]
-[ext_resource type="Script" uid="uid://dsyteei7p3q6w" path="res://combat/card/action_card_display.gd" id="3_o73ha"]
+[ext_resource type="Theme" uid="uid://daa3l60i5i78n" path="res://assets/ui/base_card_theme.tres" id="3_aqwdq"]
 [ext_resource type="PackedScene" uid="uid://b3xsaatsnykpn" path="res://combat/dev/creator_tools/playset_creator_card.tscn" id="4_rubok"]
+[ext_resource type="Script" uid="uid://dsyteei7p3q6w" path="res://combat/card/action_card_display.gd" id="4_s83y7"]
 [ext_resource type="PackedScene" uid="uid://b0c8ob13otbsf" path="res://data/units/scenes/base_unit.tscn" id="4_swld0"]
-[ext_resource type="Resource" uid="uid://du4sqdw1jv461" path="res://data/cards/guard.tres" id="4_v3wxn"]
-[ext_resource type="Script" uid="uid://oehp8wxrgocl" path="res://combat/unit/unit.gd" id="5_mpffw"]
-[ext_resource type="Script" uid="uid://sdl6kocinmnw" path="res://combat/dev/creator_tools/playset_creator_card.gd" id="5_w88wy"]
-[ext_resource type="Resource" uid="uid://bpojcusgll3vs" path="res://data/cards/first_aid.tres" id="6_8kot3"]
-[ext_resource type="Resource" uid="uid://cit5cyogbncvd" path="res://data/cards/strike.tres" id="7_0rfq4"]
 [ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="7_bb1gf"]
 [ext_resource type="PackedScene" uid="uid://de0bmrbxmr01y" path="res://combat/dev/creator_tools/playset_creator_unit.tscn" id="7_v3wxn"]
 [ext_resource type="Resource" uid="uid://t2mrfi46oapb" path="res://data/units/soldier.tres" id="8_p03nv"]
-[ext_resource type="Script" uid="uid://ddtlcjip4d74b" path="res://combat/dev/creator_tools/playset_creator_unit.gd" id="9_rubok"]
+[ext_resource type="Script" uid="uid://sdl6kocinmnw" path="res://combat/dev/creator_tools/playset_creator_card.gd" id="8_w88wy"]
+[ext_resource type="Resource" uid="uid://cmsf1u7ve8uvm" path="res://data/cards/BaseAttack.tres" id="9_8kot3"]
+[ext_resource type="Resource" uid="uid://b6fmu2hhbq6l7" path="res://data/cards/BaseDefend.tres" id="10_vaqq1"]
 [ext_resource type="Resource" uid="uid://cvktukq0bc4m0" path="res://data/units/tank.tres" id="11_0rfq4"]
+[ext_resource type="Resource" uid="uid://cjbgs6ou82m0w" path="res://data/cards/BaseHeal.tres" id="11_os6nh"]
+[ext_resource type="Resource" uid="uid://c4j2pchtcbxf0" path="res://data/cards/BaseMove.tres" id="12_r1i0n"]
 [ext_resource type="Resource" uid="uid://bfhm16dqf0kyd" path="res://data/units/scout.tres" id="12_vaqq1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrl5x"]
@@ -30,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xt0ci")
-resource_name = "testset"
+resource_name = "baseset"
 
 [node name="DisplayHolder" type="VBoxContainer" parent="." unique_id=2092707446]
 layout_mode = 0
@@ -43,137 +42,199 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="ActionCardDisplay" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=206985785 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay2" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=2043472702 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay2" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=145913865 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay3" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1671149579 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay3" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1788537788 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay4" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1655173841 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay4" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1970434569 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay5" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=14292106 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay5" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=622273329 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay6" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1191360424 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay6" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1378663124 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay7" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=791912816 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay7" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=732268707 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay8" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1482955101 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay8" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1101245849 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay9" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1935838070 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay9" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1834219657 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay10" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1929121228 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay10" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=328102095 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay11" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=930132113 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay11" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=876144860 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
-[node name="ActionCardDisplay12" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1219815122 instance=ExtResource("2_s83y7")]
-self_modulate = Color(0, 2.152498, 1.4357222, 1)
-custom_minimum_size = Vector2(70, 90)
-custom_maximum_size = Vector2(70, 90)
+[node name="ActionCardDisplay12" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1621801897 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("3_o73ha")
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
+
+[node name="ActionCardDisplay13" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=458992232 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
+
+[node name="ActionCardDisplay14" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=1896607877 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
+
+[node name="ActionCardDisplay15" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=499244311 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
+
+[node name="ActionCardDisplay16" type="PanelContainer" parent="DisplayHolder/CardContainer" unique_id=14478712 instance=ExtResource("2_s83y7")]
+self_modulate = Color(0.78766257, 4.665402, 2.9107687, 1)
+z_index = 3
+custom_minimum_size = Vector2(96, 124)
+custom_maximum_size = Vector2(96, 124)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_aqwdq")
+script = ExtResource("4_s83y7")
 
 [node name="UnitContainer" type="HFlowContainer" parent="DisplayHolder" unique_id=865612243]
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 
-[node name="BaseUnit" type="Node2D" parent="DisplayHolder/UnitContainer" unique_id=793741451 node_paths=PackedStringArray("intent_display") instance=ExtResource("4_swld0")]
+[node name="BaseUnit" parent="DisplayHolder/UnitContainer" unique_id=793741451 instance=ExtResource("4_swld0")]
 position = Vector2(20, 20)
-script = ExtResource("5_mpffw")
 unit_data = ExtResource("8_p03nv")
 select_icon = SubResource("AtlasTexture_mrl5x")
-intent_display = NodePath("IntentDisplay")
 
-[node name="BaseUnit2" type="Node2D" parent="DisplayHolder/UnitContainer" unique_id=89625435 node_paths=PackedStringArray("intent_display") instance=ExtResource("4_swld0")]
+[node name="BaseUnit2" parent="DisplayHolder/UnitContainer" unique_id=89625435 instance=ExtResource("4_swld0")]
 position = Vector2(60, 20)
-script = ExtResource("5_mpffw")
 unit_data = ExtResource("11_0rfq4")
 select_icon = SubResource("AtlasTexture_mrl5x")
-intent_display = NodePath("IntentDisplay")
 
-[node name="BaseUnit3" type="Node2D" parent="DisplayHolder/UnitContainer" unique_id=1203015779 node_paths=PackedStringArray("intent_display") instance=ExtResource("4_swld0")]
+[node name="BaseUnit3" parent="DisplayHolder/UnitContainer" unique_id=1203015779 instance=ExtResource("4_swld0")]
 position = Vector2(100, 20)
-script = ExtResource("5_mpffw")
 unit_data = ExtResource("12_vaqq1")
 select_icon = SubResource("AtlasTexture_mrl5x")
-intent_display = NodePath("IntentDisplay")
 
 [node name="DiceContainer" type="HFlowContainer" parent="DisplayHolder" unique_id=587572736]
 custom_minimum_size = Vector2(640, 0)
@@ -181,36 +242,82 @@ layout_mode = 2
 
 [node name="CreatorCardHolder" type="Node" parent="." unique_id=681853205]
 
-[node name="Strike" type="Node" parent="CreatorCardHolder" unique_id=1002897745 instance=ExtResource("4_rubok")]
-script = ExtResource("5_w88wy")
-action_card = ExtResource("7_0rfq4")
-quantity = 3
+[node name="BaseAttack" type="Node" parent="CreatorCardHolder" unique_id=1002897745 instance=ExtResource("4_rubok")]
+script = ExtResource("8_w88wy")
+action_card = ExtResource("9_8kot3")
+quantity = 4
 
-[node name="Guard" type="Node" parent="CreatorCardHolder" unique_id=1762702791 instance=ExtResource("4_rubok")]
-script = ExtResource("5_w88wy")
-action_card = ExtResource("4_v3wxn")
-quantity = 3
+[node name="BaseDefend" type="Node" parent="CreatorCardHolder" unique_id=239762022 instance=ExtResource("4_rubok")]
+script = ExtResource("8_w88wy")
+action_card = ExtResource("10_vaqq1")
+quantity = 4
 
-[node name="Walk" type="Node" parent="CreatorCardHolder" unique_id=2086326183 instance=ExtResource("4_rubok")]
-script = ExtResource("5_w88wy")
-action_card = ExtResource("3_iytb4")
-quantity = 3
+[node name="BaseHeal" type="Node" parent="CreatorCardHolder" unique_id=2684767 instance=ExtResource("4_rubok")]
+script = ExtResource("8_w88wy")
+action_card = ExtResource("11_os6nh")
+quantity = 4
 
-[node name="First-Aid" type="Node" parent="CreatorCardHolder" unique_id=2131042026 instance=ExtResource("4_rubok")]
-script = ExtResource("5_w88wy")
-action_card = ExtResource("6_8kot3")
-quantity = 3
+[node name="BaseMove" type="Node" parent="CreatorCardHolder" unique_id=1007903413 instance=ExtResource("4_rubok")]
+script = ExtResource("8_w88wy")
+action_card = ExtResource("12_r1i0n")
+quantity = 4
 
 [node name="CreatorUnitHolder" type="Node" parent="." unique_id=492768461]
 
-[node name="infantry" type="Node" parent="CreatorUnitHolder" unique_id=449317500 instance=ExtResource("7_v3wxn")]
-script = ExtResource("9_rubok")
+[node name="infantry" parent="CreatorUnitHolder" unique_id=449317500 instance=ExtResource("7_v3wxn")]
 unit_data = ExtResource("8_p03nv")
 
-[node name="tank" type="Node" parent="CreatorUnitHolder" unique_id=1973766713 instance=ExtResource("7_v3wxn")]
-script = ExtResource("9_rubok")
+[node name="tank" parent="CreatorUnitHolder" unique_id=1973766713 instance=ExtResource("7_v3wxn")]
 unit_data = ExtResource("11_0rfq4")
 
-[node name="scout" type="Node" parent="CreatorUnitHolder" unique_id=689246006 instance=ExtResource("7_v3wxn")]
-script = ExtResource("9_rubok")
+[node name="scout" parent="CreatorUnitHolder" unique_id=689246006 instance=ExtResource("7_v3wxn")]
 unit_data = ExtResource("12_vaqq1")
+
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay" to="DisplayHolder/CardContainer/ActionCardDisplay" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay" to="DisplayHolder/CardContainer/ActionCardDisplay" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay" to="DisplayHolder/CardContainer/ActionCardDisplay" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay2" to="DisplayHolder/CardContainer/ActionCardDisplay2" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay2" to="DisplayHolder/CardContainer/ActionCardDisplay2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay2" to="DisplayHolder/CardContainer/ActionCardDisplay2" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay3" to="DisplayHolder/CardContainer/ActionCardDisplay3" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay3" to="DisplayHolder/CardContainer/ActionCardDisplay3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay3" to="DisplayHolder/CardContainer/ActionCardDisplay3" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay4" to="DisplayHolder/CardContainer/ActionCardDisplay4" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay4" to="DisplayHolder/CardContainer/ActionCardDisplay4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay4" to="DisplayHolder/CardContainer/ActionCardDisplay4" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay5" to="DisplayHolder/CardContainer/ActionCardDisplay5" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay5" to="DisplayHolder/CardContainer/ActionCardDisplay5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay5" to="DisplayHolder/CardContainer/ActionCardDisplay5" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay6" to="DisplayHolder/CardContainer/ActionCardDisplay6" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay6" to="DisplayHolder/CardContainer/ActionCardDisplay6" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay6" to="DisplayHolder/CardContainer/ActionCardDisplay6" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay7" to="DisplayHolder/CardContainer/ActionCardDisplay7" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay7" to="DisplayHolder/CardContainer/ActionCardDisplay7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay7" to="DisplayHolder/CardContainer/ActionCardDisplay7" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay8" to="DisplayHolder/CardContainer/ActionCardDisplay8" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay8" to="DisplayHolder/CardContainer/ActionCardDisplay8" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay8" to="DisplayHolder/CardContainer/ActionCardDisplay8" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay9" to="DisplayHolder/CardContainer/ActionCardDisplay9" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay9" to="DisplayHolder/CardContainer/ActionCardDisplay9" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay9" to="DisplayHolder/CardContainer/ActionCardDisplay9" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay10" to="DisplayHolder/CardContainer/ActionCardDisplay10" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay10" to="DisplayHolder/CardContainer/ActionCardDisplay10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay10" to="DisplayHolder/CardContainer/ActionCardDisplay10" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay11" to="DisplayHolder/CardContainer/ActionCardDisplay11" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay11" to="DisplayHolder/CardContainer/ActionCardDisplay11" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay11" to="DisplayHolder/CardContainer/ActionCardDisplay11" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay12" to="DisplayHolder/CardContainer/ActionCardDisplay12" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay12" to="DisplayHolder/CardContainer/ActionCardDisplay12" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay12" to="DisplayHolder/CardContainer/ActionCardDisplay12" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay13" to="DisplayHolder/CardContainer/ActionCardDisplay13" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay13" to="DisplayHolder/CardContainer/ActionCardDisplay13" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay13" to="DisplayHolder/CardContainer/ActionCardDisplay13" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay14" to="DisplayHolder/CardContainer/ActionCardDisplay14" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay14" to="DisplayHolder/CardContainer/ActionCardDisplay14" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay14" to="DisplayHolder/CardContainer/ActionCardDisplay14" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay15" to="DisplayHolder/CardContainer/ActionCardDisplay15" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay15" to="DisplayHolder/CardContainer/ActionCardDisplay15" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay15" to="DisplayHolder/CardContainer/ActionCardDisplay15" method="_on_mouse_exited"]
+[connection signal="gui_input" from="DisplayHolder/CardContainer/ActionCardDisplay16" to="DisplayHolder/CardContainer/ActionCardDisplay16" method="_on_gui_input"]
+[connection signal="mouse_entered" from="DisplayHolder/CardContainer/ActionCardDisplay16" to="DisplayHolder/CardContainer/ActionCardDisplay16" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DisplayHolder/CardContainer/ActionCardDisplay16" to="DisplayHolder/CardContainer/ActionCardDisplay16" method="_on_mouse_exited"]

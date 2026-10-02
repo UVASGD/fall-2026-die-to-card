@@ -14,8 +14,8 @@ var health : int = health_max #out of max, saves health loss between encounters
 
 func _ready():
 	#for debug purposes, got to move this init somewhere else soon
-	var testset : Playset = load("uid://dgojfsn5wvidh")
-	load_playset(testset)
+	var baseset : Playset = load("uid://b2datigqkegl2")
+	load_playset(baseset)
 
 ### Loads playset (to be used with save loading or starting up a run)
 func load_playset(playset : Playset):

@@ -1,3 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://b580btorccrsm"]
 
+[ext_resource type="FontFile" uid="uid://cwo45cd0i7is2" path="res://assets/ui/fonts/PixelOperator8.ttf" id="1_srpco"]
+
 [resource]
+Button/fonts/font = ExtResource("1_srpco")
+RichTextLabel/fonts/normal_font = ExtResource("1_srpco")

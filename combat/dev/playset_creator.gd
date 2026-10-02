@@ -34,9 +34,9 @@ extends Control
 @export_tool_button("Save Playset","Save") var playset_save : Callable = save_playset
 @export_tool_button("Load Playset","Load") var playset_load : Callable = load_playset
 
-@onready var card_container : HFlowContainer = $VBoxContainer/CardContainer
-@onready var unit_container : HFlowContainer = $VBoxContainer/UnitContainer
-@onready var dice_container : HFlowContainer = $VBoxContainer/DiceContainer
+@onready var card_container : HFlowContainer = $DisplayHolder/CardContainer
+@onready var unit_container : HFlowContainer = $DisplayHolder/UnitContainer
+@onready var dice_container : HFlowContainer = $DisplayHolder/DiceContainer
 @onready var creator_card_holder : Node = $CreatorCardHolder
 @onready var creator_unit_holder : Node = $CreatorUnitHolder
 @onready var creator_unit : PackedScene = preload("uid://de0bmrbxmr01y")

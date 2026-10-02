@@ -59,8 +59,13 @@ func _input(event: InputEvent) -> void:
 					var map_pos : Vector2 = combat_grid.terrain_map.local_to_map(mouse_pos)
 					if map_pos in combat_grid.terrain_map.get_used_cells():
 						#INFO: DEPLOY handling
-						if true: #current_phase == PHASE.DEPLOY:
+						if current_phase == PHASE.DEPLOY:
 							deploy(map_pos)
+						#INFO: COMMAND handling
+						if current_phase == PHASE.COMMAND:
+							var unit : Unit = combat_grid.unit_grid.get(map_pos)
+							if unit != null:
+								combat_menu.card_manager.command_unit(unit)
 
 #region phase_transition
 
@@ -101,11 +106,14 @@ func _phase_change(new_phase : PHASE):
 		PHASE.COMMAND:
 			combat_menu.unit_selection.visible = false
 			combat_menu.card_manager.draw(player_draw)
+			combat_menu.card_manager.current_select_mode = CombatActionCardManager.SELECT_MODE.COMMAND
 		PHASE.EXECUTE:
 			combat_menu.card_manager.discard(combat_menu.card_manager.player_hand)
+			combat_menu.card_manager.current_select_mode = CombatActionCardManager.SELECT_MODE.NONE
 		PHASE.NONE:
 			combat_menu.unit_selection.visible = false
 			combat_menu.card_manager.discard(combat_menu.card_manager.player_hand)
+			combat_menu.card_manager.current_select_mode = CombatActionCardManager.SELECT_MODE.NONE
 #endregion
 
 #handle deploy off of mouse click (This is here to make _input less bulky)
