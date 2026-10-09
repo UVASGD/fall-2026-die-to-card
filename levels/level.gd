@@ -1,7 +1,7 @@
 extends Node2D
 class_name Level
 
-### Parent class for all levels, intended to be inherited from.
+## INFO: Parent class for all levels, intended to be inherited from.
 ## make sure every level has a script inherting from this, or this script
 ## this ensures the level will function correctly in LevelManager
 

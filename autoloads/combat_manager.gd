@@ -121,7 +121,7 @@ func deploy(map_pos : Vector2):
 				combat_menu.unit_selection.deselect_unit()
 				combat_menu.unit_selection.check_affordable()
 			else:
-				var success : bool = combat_grid.move_unit(selected_unit,map_pos,true)
+				var success : bool = combat_grid.deploy_unit(selected_unit,map_pos)
 				if !success:
 					print("failed to place unit! (UNIT PROBABLY IN THE WAY)")
 					#TODO: some sorta animation when this triggers would be cool...

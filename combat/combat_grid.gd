@@ -106,30 +106,56 @@ func target_column(column : int) -> Array[Unit]:
 #endregion
 
 #also handles deployment
-func move_unit(unit : Unit, new_coords : Vector2i, deployment : bool = false) -> bool:
-	if unit_grid.get(new_coords) != null:
-		print("there's a unit in the way of movement")
-		return false
-	if new_coords.x < 0 or new_coords.x >= grid_size.x:
-		prints("no out of bounds movement1",grid_size.x)
-		return false
-	elif new_coords.y < 0 or new_coords.y >= grid_size.y:
-		print("no out of bounds movement2")
-		return false
+func move_unit(unit : Unit, destination : Vector2i, deployment : bool = false) -> bool:
+	if !check_coords_movable_to(destination): return false
+	
 	unit_grid.erase(unit.location)
-	unit.location = new_coords
-	unit_grid.set(new_coords,unit)
-	if deployment:
-		if not unit in get_children():
-			add_child(unit)
-		#TODO: add in deployment animation here!
-		unit.position = Vector2i(terrain_map.map_to_local(new_coords))
-	else:
-		var move_tween : Tween = unit.create_tween().bind_node(unit)
-		#TODO: tweak this tween at some point to make the anim good
-		#TODO: also trigger movement animation in unit here
-		move_tween.tween_property(unit,"position",terrain_map.map_to_local(new_coords),unit.unit_data.speed/3.0)
+	unit.location = destination
+	unit_grid.set(destination,unit)
+	var move_tween : Tween = unit.create_tween().bind_node(unit)
+	#TODO: tweak this tween at some point to make the anim good
+	#TODO: also trigger movement animation in unit here
+	move_tween.tween_property(unit,"position",terrain_map.map_to_local(destination),unit.unit_data.speed/3.0)
+	#unit.position = Vector2i(terrain_map.map_to_local(destination))
 	return true
+
+# deployment; practically identical to move_unit but for clarity
+func deploy_unit(unit: Unit, coords: Vector2i) -> bool:
+	if !check_coords_movable_to(coords): return false
+	unit_grid.erase(unit.location)
+	unit.location = coords
+	unit_grid.set(coords,unit)
+	if not unit in get_children():
+		add_child(unit)
+	#TODO: add in deployment animation here!
+	unit.position = Vector2i(terrain_map.map_to_local(coords))
+	return true
+	
+
+# checks if grid coords store an entity or are out of bounds and returns false if this is the case
+func check_coords_movable_to(coords : Vector2i):
+	var mt = true
+	if unit_grid.get(coords) != null:
+		print("there's a unit in the way of movement")
+		mt = false
+	if check_coords_out_of_bounds(coords):
+		mt = false
+	return mt
+
+# self-explanatory
+func check_coords_out_of_bounds(coords : Vector2i):
+	var oob = false
+	var text = "no out of bounds movement"
+	if coords.x < 0 or coords.x >= grid_size.x:
+		text += " (x: {0} out of [0, {1}))".format([coords.x, grid_size.x])
+		oob = true
+	if coords.y < 0 or coords.y >= grid_size.y:
+		text += " (y: ${0} out of [0, ${1}))".format([coords.y, grid_size.y])
+		oob = true
+	if oob: print(text)
+	print("cannot move: %s" %oob)
+	return oob
+
 
 #region highlighting
 func highlight_team():
@@ -149,3 +175,6 @@ func clear_highlight_layer():
 		for j : CombatTile in i:
 			highlight_layer.set_cell(j.coords,0,highlight_atlas.get("neutral"))
 #endregion
+
+func _process(delta: float) -> void:
+	print(target_cell(Vector2i(0,0)))

@@ -17,12 +17,15 @@ func _ready() -> void:
 		intent_stack.append(i)
 	clear_intents() #just in case :)
 
+#Displays the intent type and value \_("/)_/
 func display_intent(intent_type : Unit.INTENT_TYPE, value : int):
 	var new_intent : IntentDisplay = intent_scene.instantiate()
 	new_intent.set_intent(intent_type,value)
 	intent_stack.append(intent_type)
 	v_box.add_child(new_intent)
 
+#Removes first found intent of designated type and value from intent stack
+#why is this a thing
 func clear_intent(intent_type : Unit.INTENT_TYPE, value : int):
 	for i : IntentDisplay in intent_stack:
 		if i.intent_type == intent_type:
@@ -31,6 +34,7 @@ func clear_intent(intent_type : Unit.INTENT_TYPE, value : int):
 				intent_stack.erase(i)
 				return
 
+#Removes all intents from intent stack
 func clear_intents():
 	for i in intent_stack:
 		i.queue_free()

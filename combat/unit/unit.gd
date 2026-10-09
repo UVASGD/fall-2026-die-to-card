@@ -39,4 +39,7 @@ func heal(healing: int):
 
 func deploy(coords : Vector2i):
 	CombatManager.combat_grid.add_child(self)
-	CombatManager.combat_grid.move_unit(self,coords,true)
+	CombatManager.combat_grid.deploy_unit(self,coords)
+
+func move(coords : Vector2i):
+	CombatManager.combat_grid.move_unit(self,coords)
