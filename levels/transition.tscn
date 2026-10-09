@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dtrmbiyw5vt1a"]
+
+[ext_resource type="Texture2D" uid="uid://va0w1naaavr5" path="res://assets/art/demo art/wooden-bg-mk1.png" id="1_aqis3"]
+
+[node name="Node2D" type="Node2D" unique_id=2109885521]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1617273710]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(128, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("1_aqis3")
+
+[node name="Door" type="Sprite2D" parent="." unique_id=1380799836]
