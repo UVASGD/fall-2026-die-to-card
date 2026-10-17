@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dtrmbiyw5vt1a"]
+
+[ext_resource type="Script" uid="uid://uj24x4x8wcbn" path="res://levels/the_door.gd" id="1_b1y68"]
+[ext_resource type="Texture2D" uid="uid://va0w1naaavr5" path="res://assets/art/demo art/wooden-bg-mk1.png" id="2_v1pju"]
+[ext_resource type="Texture2D" uid="uid://c6vfhlosl8uv7" path="res://assets/art/demo art/elevator.png" id="3_v1pju"]
+
+[node name="Node2D" type="Node2D" unique_id=2109885521]
+script = ExtResource("1_b1y68")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1617273710]
+texture_filter = 1
+position = Vector2(319, 214.00002)
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("2_v1pju")
+
+[node name="Door" type="Sprite2D" parent="." unique_id=1380799836]
+position = Vector2(348, 181)
+scale = Vector2(3.023437, 2.0585938)
+texture = ExtResource("3_v1pju")

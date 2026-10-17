@@ -5,7 +5,9 @@ extends Node
 
 const LEVELS : Dictionary[StringName,String] = {
 	&"titlescreen" : "uid://be8uufjh0lvxv",
-	&"combat_arena" : "uid://cutnrcn078gls"
+	&"combat_arena" : "uid://cutnrcn078gls",
+	&"THE_DOOR": "uid://dtrmbiyw5vt1a",
+	&"THE_FLOOR": "uid://b1c6c22dfnjuv"
 }
 
 #const BACK_LEVELS : Dictionary[String,StringName] = {
