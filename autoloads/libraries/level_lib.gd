@@ -18,13 +18,15 @@ const LEVELS : Dictionary[StringName,String] = {
 const OVERLAYS : Dictionary[StringName,String] = {
 	&"titlescreen_menu": "uid://c08m6jqvkj53w",
 	&"blank_transition": "uid://bfc6oo33uoifm", #fanfareless swap
-	&"combat_menu": "uid://b4720mj7xepuf"
+	&"combat_menu": "uid://b4720mj7xepuf",
+	&"THE_DOOR_MENU": "uid://c3mpruqqukkdt"
 }
 
 const BACK_OVERLAYS : Dictionary[String,StringName] = {
 	"uid://c08m6jqvkj53w": &"titlescreen_menu",
 	"uid://bfc6oo33uoifm": &"blank_transition",
-	"uid://b4720mj7xepuf": &"combat_menu"
+	"uid://b4720mj7xepuf": &"combat_menu",
+	"uid://c3mpruqqukkdt": &"THE_DOOR_MENU"
 }
 
 ## call this to obtain level uid safely

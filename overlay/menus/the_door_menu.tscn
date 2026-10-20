@@ -1,0 +1,239 @@
+[gd_scene format=3 uid="uid://c3mpruqqukkdt"]
+
+[ext_resource type="Script" uid="uid://b4qceck6qwwyi" path="res://overlay/menus/the_door_menu.gd" id="1_5yrms"]
+[ext_resource type="Texture2D" uid="uid://va0w1naaavr5" path="res://assets/art/demo art/wooden-bg-mk1.png" id="2_8gudo"]
+[ext_resource type="Texture2D" uid="uid://c6vfhlosl8uv7" path="res://assets/art/demo art/elevator.png" id="3_buf8m"]
+[ext_resource type="Script" uid="uid://lsfa4je05wdy" path="res://overlay/menus/scroll_container.gd" id="4_p6eu8"]
+[ext_resource type="PackedScene" uid="uid://cl5wt7gj7gmuj" path="res://overlay/draggable_element.tscn" id="4_shjnf"]
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="5_p6eu8"]
+[ext_resource type="FontFile" uid="uid://cwo45cd0i7is2" path="res://assets/ui/fonts/PixelOperator8.ttf" id="5_shjnf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8mpmi"]
+font = ExtResource("5_shjnf")
+font_size = 20
+
+[node name="THE_DOOR_MENU" type="Control" unique_id=330653549]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5yrms")
+
+[node name="bj" type="TextureRect" parent="." unique_id=1365472457]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 364.0
+texture = ExtResource("2_8gudo")
+
+[node name="dr" type="TextureRect" parent="." unique_id=1029820142]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 104.0
+offset_right = 346.0
+offset_bottom = 232.0
+texture = ExtResource("3_buf8m")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=70221772]
+layout_mode = 1
+offset_left = 496.0
+offset_top = 54.0
+offset_right = 629.0
+offset_bottom = 326.0
+size_flags_horizontal = 0
+script = ExtResource("4_p6eu8")
+
+[node name="Grid" type="GridContainer" parent="ScrollContainer" unique_id=871322770]
+layout_mode = 2
+theme_override_constants/h_separation = 65
+theme_override_constants/v_separation = 65
+columns = 2
+
+[node name="draggable_element" parent="ScrollContainer/Grid" unique_id=1394648207 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element2" parent="ScrollContainer/Grid" unique_id=644196072 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element3" parent="ScrollContainer/Grid" unique_id=1060831730 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element4" parent="ScrollContainer/Grid" unique_id=1656830202 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element11" parent="ScrollContainer/Grid" unique_id=364559461 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element12" parent="ScrollContainer/Grid" unique_id=2024365443 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element13" parent="ScrollContainer/Grid" unique_id=2084843756 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element14" parent="ScrollContainer/Grid" unique_id=1151175308 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element5" parent="ScrollContainer/Grid" unique_id=1999560862 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element6" parent="ScrollContainer/Grid" unique_id=1344326982 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element7" parent="ScrollContainer/Grid" unique_id=636686914 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element8" parent="ScrollContainer/Grid" unique_id=500133825 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element9" parent="ScrollContainer/Grid" unique_id=926346556 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element10" parent="ScrollContainer/Grid" unique_id=1076405632 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element15" parent="ScrollContainer/Grid" unique_id=352234361 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element16" parent="ScrollContainer/Grid" unique_id=1773030949 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element17" parent="ScrollContainer/Grid" unique_id=62012793 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element18" parent="ScrollContainer/Grid" unique_id=1987489293 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element19" parent="ScrollContainer/Grid" unique_id=327769305 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element20" parent="ScrollContainer/Grid" unique_id=1797756747 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element21" parent="ScrollContainer/Grid" unique_id=1044146247 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element22" parent="ScrollContainer/Grid" unique_id=286073170 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element23" parent="ScrollContainer/Grid" unique_id=1577353003 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element24" parent="ScrollContainer/Grid" unique_id=1798183419 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element25" parent="ScrollContainer/Grid" unique_id=1069858055 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element26" parent="ScrollContainer/Grid" unique_id=1970306367 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element27" parent="ScrollContainer/Grid" unique_id=226829853 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element28" parent="ScrollContainer/Grid" unique_id=115818285 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element29" parent="ScrollContainer/Grid" unique_id=1647324094 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element30" parent="ScrollContainer/Grid" unique_id=153029928 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element31" parent="ScrollContainer/Grid" unique_id=90273025 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element32" parent="ScrollContainer/Grid" unique_id=1201191835 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element33" parent="ScrollContainer/Grid" unique_id=1392673522 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element34" parent="ScrollContainer/Grid" unique_id=2005274201 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element35" parent="ScrollContainer/Grid" unique_id=749574169 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element36" parent="ScrollContainer/Grid" unique_id=48909416 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element37" parent="ScrollContainer/Grid" unique_id=1054343408 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element38" parent="ScrollContainer/Grid" unique_id=730761088 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element39" parent="ScrollContainer/Grid" unique_id=1601314720 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element40" parent="ScrollContainer/Grid" unique_id=762829563 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element41" parent="ScrollContainer/Grid" unique_id=138629646 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="draggable_element42" parent="ScrollContainer/Grid" unique_id=1070660343 instance=ExtResource("4_shjnf")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=920300268]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 9.0
+offset_right = 629.0
+offset_bottom = 50.0
+text = "Dice 
+(rPlular)"
+label_settings = SubResource("LabelSettings_8mpmi")
+horizontal_alignment = 2
+
+[node name="DragLayer" type="Control" parent="." unique_id=1448964617]
+anchors_preset = 0
+offset_right = 643.0
+offset_bottom = 366.0
+mouse_filter = 2
+
+[node name="DiceSlots" type="Control" parent="." unique_id=651275610]
+anchors_preset = 0
+offset_left = 300.0
+offset_top = 150.0
+offset_right = 306.0
+offset_bottom = 159.0
+
+[node name="DiceSlot1" type="Control" parent="DiceSlots" unique_id=190088662]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="DiceSlots/DiceSlot1" unique_id=1316960183]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_p6eu8")
+expand_mode = 1
+
+[node name="DiceSlot4" type="Control" parent="DiceSlots" unique_id=1393874405]
+anchors_preset = 0
+offset_top = -80.0
+offset_right = 40.0
+offset_bottom = -40.0
+
+[node name="TextureRect" type="TextureRect" parent="DiceSlots/DiceSlot4" unique_id=126569340]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_p6eu8")
+expand_mode = 1
+
+[node name="DiceSlot5" type="Control" parent="DiceSlots" unique_id=134396740]
+anchors_preset = 0
+offset_top = 88.0
+offset_right = 40.0
+offset_bottom = 128.0
+
+[node name="TextureRect" type="TextureRect" parent="DiceSlots/DiceSlot5" unique_id=937576122]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_p6eu8")
+expand_mode = 1

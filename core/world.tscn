@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cmkrncyq6wq76" path="res://core/world.gd" id="1_ccd7m"]
 [ext_resource type="PackedScene" uid="uid://be8uufjh0lvxv" path="res://levels/titlescreen.tscn" id="2_ccd7m"]
 [ext_resource type="PackedScene" uid="uid://c08m6jqvkj53w" path="res://overlay/menus/titlescreen_menu.tscn" id="3_e68cy"]
+[ext_resource type="PackedScene" uid="uid://c3mpruqqukkdt" path="res://overlay/menus/the_door_menu.tscn" id="4_e68cy"]
 
 [node name="World" type="Node2D" unique_id=1561945457]
 script = ExtResource("1_ccd7m")
@@ -14,3 +15,5 @@ script = ExtResource("1_ccd7m")
 [node name="OverlayLayer" type="CanvasLayer" parent="." unique_id=1599992563]
 
 [node name="TitlescreenMenu" parent="OverlayLayer" unique_id=1012544821 instance=ExtResource("3_e68cy")]
+
+[node name="THE_DOOR_MENU" parent="OverlayLayer" unique_id=330653549 instance=ExtResource("4_e68cy")]

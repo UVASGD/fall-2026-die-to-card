@@ -41,5 +41,10 @@ func lucky_roll(): #uses a calculus-esque approach to tilt probabilities towards
 	
 	return sides #fallback
 
+func use(lucky: bool):
+	if lucky:
+		return lucky_roll()
+	return roll()
+
 func remove():
 	queue_free()
