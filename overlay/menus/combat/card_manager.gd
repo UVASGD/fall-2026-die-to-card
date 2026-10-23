@@ -53,6 +53,8 @@ var current_select_mode : SELECT_MODE = SELECT_MODE.NONE:
 		current_select_mode = new_mode
 #communicating if selecting is happening
 var is_selecting : bool = false
+#WARNING: SHOULD NOT BE CHANGED CURRENTLY, to be used in the future if we need it
+var can_deselect : bool = true
 #flag for telling combatmanager that command is ready to be applied to unit
 var command_ready : bool = false
 
@@ -66,6 +68,12 @@ var command_ready : bool = false
 @onready var select_confirm_button : Button = $"../../../CenterOffset/VBoxContainer/SelectConfirmButton"
 @onready var side_slot_mat : Panel = $"../../../MarginContainer/PlayerCommand/SideMargins/SideSlotMat"
 @onready var card_display_template : PackedScene = preload("uid://b8nnn0fw630u5")
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.is_action_pressed("cancel"):
+			if is_selecting and can_deselect:
+				deselect_cards(selected_cards,DESTINATION.HAND)
 
 #region datamovement
 # right now, this only replaces the player_deck array
@@ -299,6 +307,7 @@ func select_card(selected : ActionCardDisplay):
 				_disconnect_hand_signals(selected)
 				if not selected.card_clicked.is_connected(_select_card):
 					selected.card_clicked.connect(_select_card)
+				selected.can_action_focus = true
 				selected_cards.append(selected)
 				player_hand.erase(selected)
 				_update_hand()
@@ -318,10 +327,14 @@ func deselect_cards(selected : Array[ActionCardDisplay], destination : DESTINATI
 				DESTINATION.HAND:
 					player_hand.append(i)
 					_connect_hand_signals(i)
+					i.disable_actions()
+					i.focus = false
+					_update_hand()
 				DESTINATION.DISCARD:
 					var new_target : Vector2 = player_mat_pos.to_local(player_discard_mat.global_position)
 					i.move_target(new_target,0.0,true)
 					player_discard.append(i.action_card)
+			i.can_action_focus = false
 			selected_cards.erase(i)
 	if selected_cards.is_empty():
 		close_select()
@@ -339,6 +352,7 @@ func close_select() -> void:
 			pass
 	select_container.visible = false
 	is_selecting = false
+	CombatManager.combat_grid.mouse_highlight = true
 
 ##opening up the select gui, MAKE SURE TO RUN THIS AFTER SWITCHING SELECT MODE!
 func open_select() -> void:
@@ -351,15 +365,27 @@ func open_select() -> void:
 		SELECT_MODE.DISCARD:
 			pass
 	is_selecting = true
+	CombatManager.combat_grid.mouse_highlight = false
 
 #moving onto the next step of select
 func _on_select_confirm_button_pressed() -> void:
 	match current_select_mode:
 		SELECT_MODE.COMMAND:
-			#TODO: add some check for dice slot fill, or something
-			selected_cards.get(0).move_target(player_mat_pos.to_local(side_slot_mat.global_position),0.0)
-			select_container.visible = false
-			command_ready = true
+			var selected_card : ActionCardDisplay = selected_cards.get(0)
+			var action_focused : bool = false
+			for i in selected_card.action_card.actions.values():
+				if i.focus:
+					action_focused = true
+					break
+			if action_focused:
+				selected_card.move_target(player_mat_pos.to_local(side_slot_mat.global_position),0.0)
+				selected_card.can_action_focus = false
+				select_container.visible = false
+				command_ready = true
+				CombatManager.combat_grid.mouse_highlight = true
+			else:
+				print("please select an intent")
+				#TODO: put up a ui thingy here letting people know of the issue
 
 #actually giving the unit the intent
 func command_unit(unit : Unit) -> void:
@@ -369,5 +395,9 @@ func command_unit(unit : Unit) -> void:
 		for i in selected_actions:
 			if i.focus:
 				focus_actions.append(i)
-		unit.set_intents(focus_actions)
+		if unit.set_intents(focus_actions):
+			deselect_cards(selected_cards,DESTINATION.DISCARD)
+		else:
+			print("unit cannot hold this many (additional) intents")
+			#TODO: put up a ui thingy here letting people know of the issue
 #endregion

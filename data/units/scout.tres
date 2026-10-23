@@ -8,6 +8,6 @@ unit_uid = "uid://b0c8ob13otbsf"
 name = "scout"
 max_health = 1
 speed = 3
-auto_card = "null"
 cost = 1
+intent_slots = 2
 metadata/_custom_type_script = "uid://bvoibweo8641m"

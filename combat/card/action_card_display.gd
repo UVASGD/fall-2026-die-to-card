@@ -18,14 +18,28 @@ var action_card : ActionCard = null
 var can_focus : bool = false # lock for when we don't want cards to be enlarged
 var focus : bool = false # actual focus status
 var can_select : bool = false #lock for when we don't want cards to be selected
+var can_action_focus : bool: #setting action focus for commanding units
+	set(value):
+		for i in action_box.get_children():
+			if i is ActionCardDisplayAction:
+				i.dice_button.disabled = not value
+		can_action_focus = value
 @onready var name_label : Label = $AllVBox/NameMargin/Name
 @onready var portrait_rect: TextureRect = $AllVBox/Portrait
 @onready var action_display : PackedScene = preload("uid://dygcl7f4ktt3v")
 @onready var action_box: VBoxContainer = $AllVBox/ActionMargin/ActionBox
 
-# WARNING: must supply an action card to the display before it can do anything!
+## WARNING: must supply an action card to the display before it can do anything!
+## see ActionCard for structure of actions and diceslots and events
 
-# see ActionCard for structure of actions and diceslots and events
+#for selecting cards (look at cardmanager)
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				if can_select:
+					card_clicked.emit(self)
+
 ## call this AFTER bringing it into the scene to "build" the card
 func load_display():
 	clear_display()
@@ -37,6 +51,7 @@ func load_display():
 		if Engine.is_editor_hint():
 			action.load_for_editor()
 		action.load_action(i,action_card.actions.get(i))
+	can_action_focus = false
 	visible = true
 
 ## Handling nice lookin movement of cards individually (and change on the fly!)
@@ -58,23 +73,21 @@ func clear_display():
 		if i is ActionCardDisplayAction:
 			i.queue_free()
 
+## Deactivating the action buttons
+func disable_actions():
+	for i in action_box.get_children():
+		if i is ActionCardDisplayAction:
+			i.dice_button.button_pressed = false
+
 #the following two functions are there for focus, and other fun effects in the future
 func _on_mouse_entered() -> void:
 	if can_focus:
 		focus = true
-		z_index = 5
+		z_index = 19
 		card_moused.emit()
 
 func _on_mouse_exited() -> void:
-	z_index = 3
+	z_index = 17
 	if can_focus:
 		focus = false
 		card_moused.emit()
-
-#for selecting cards (look at cardmanager)
-func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			if event.button_index == MOUSE_BUTTON_LEFT:
-				if can_select:
-					card_clicked.emit(self)

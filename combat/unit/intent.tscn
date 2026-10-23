@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://bscjssrnkn116" path="res://combat/unit/intent.gd" id="1_pgnx1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v3rg"]
+resource_local_to_scene = true
 atlas = ExtResource("1_e6red")
 region = Rect2(0, 0, 8, 8)
 filter_clip = true
 
 [node name="Intent" type="Control" unique_id=624691197]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,6 +39,7 @@ offset_right = 3.5
 offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_4v3rg")
 expand_mode = 1
 
@@ -50,14 +52,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -7.0
-offset_top = -6.0
-offset_right = 7.0
-offset_bottom = 6.0
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 17.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 8
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
 text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1

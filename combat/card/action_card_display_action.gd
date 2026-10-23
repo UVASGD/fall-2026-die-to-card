@@ -28,3 +28,6 @@ func load_action(new_action_name : String, new_card_action : CardAction):
 func _load_dice_button():
 	if not card_action.diceslot.is_empty():
 		dice_button.visible = true
+
+func _on_dice_button_toggled(toggled_on: bool) -> void:
+	card_action.focus = toggled_on

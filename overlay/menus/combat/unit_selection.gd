@@ -61,3 +61,4 @@ func deselect_unit():
 		last_index = -1
 		tooltip.hide_tip()
 		CombatManager.combat_grid.clear_highlight_layer()
+		CombatManager.combat_grid.last_highlight = "neutral"

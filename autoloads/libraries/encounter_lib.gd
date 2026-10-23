@@ -6,7 +6,7 @@ extends Node
 
 # for combat encounters, please use the name format combat_(id) for easy id
 const ENCOUNTERS : Dictionary[StringName,String] = {
-	&"combat_test":"uid://bo20t23xmgyy6"
+	&"combat_test":"uid://dg14c5hfapaia"
 }
 
 ## call this to obtain encounter uid safely

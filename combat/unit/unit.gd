@@ -50,11 +50,15 @@ func deploy(coords : Vector2i):
 	CombatManager.combat_grid.add_child(self)
 	CombatManager.combat_grid.move_unit(self,coords,true)
 
-##displays the intent you desire
-func set_intents(actions : Array[CardAction]):
+##displays the intents you desire
+func set_intents(actions : Array[CardAction]) -> bool:
+	prints(actions, " : set intents")
+	if unit_data.intent_slots <= intent_actions.size():
+		return false
 	for i in actions:
 		intent_display.display_intent(i.intent_type,i.value)
 		intent_actions.append(i)
+	return true
 
 ##remove a specific intents
 func remove_intents(actions : Array[CardAction]):

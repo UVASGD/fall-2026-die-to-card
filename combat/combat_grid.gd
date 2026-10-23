@@ -6,8 +6,8 @@ extends Node2D
 
 # x = width, y = height
 #NOTE: I'm using this for initialization currently...
-# If we make any terrains outside of 12 by 5, we'll need to change something
-var grid_size : Vector2i = Vector2i(12,5)
+# If we make any terrains outside of 10 by 5, we'll need to change something
+var grid_size : Vector2i = Vector2i(10,5)
 
 ## for use in the highlight functions
 # Should most certainly be updated to align with newer visuals and tiles
@@ -18,13 +18,35 @@ var highlight_atlas : Dictionary[String,Vector2] = {
 	"neutral": Vector2(4,4)
 }
 
+## pretty much just used for storing previous highlights to be reapplied after
+## (for mouse hovering, temporary selections)
+var back_highlight_atlas : Dictionary[Vector2,String] = {
+	Vector2(0,0) : "player",
+	Vector2(1,0) : "enemy",
+	Vector2(2,0) : "target",
+	Vector2(4,4) : "neutral"
+}
+
 ## for use in draw_terrain(), converting terrain map to visuals
 #Should most certainly be updated to align with newer visuals and tiles
 var tile_atlas : Dictionary[int,Vector2i] = {
 	1 : Vector2i(1,0) #plains (numbers based off of CombatTile.TYPE)
 }
+
+#region mouse hover highlight management
 #flag to be controlled by combatmanager for when hovering over a tile should highlight it
 var mouse_highlight : bool = false
+#flag to for overriding tooltip
+var mouse_tooltip : bool = false:
+	set(value):
+		if mouse_tooltip:
+			CombatManager.combat_menu.tooltip.hide_tip()
+		mouse_tooltip = value
+#please never use negative coordinate tiles in the highlight layer, thank you
+#-Vector2i.ONE == null for our use case
+var current_focus : Vector2i = -Vector2i.ONE
+var last_highlight : String = "neutral" #storing the tile's highlight layer before
+#endregion
 
 #stores terrain data
 @onready var terrain_grid : Array[Array] = []
@@ -41,8 +63,32 @@ func _ready():
 		for j in grid_size.y:
 			terrain_grid.get(i).append(null)
 
+#mostly visual stuff, for player viewing the grid
 func _input(event: InputEvent) -> void:
-	pass
+	if event is InputEventMouseMotion:
+		var mouse_pos : Vector2 = highlight_layer.get_local_mouse_position()
+		var map_pos : Vector2i = highlight_layer.local_to_map(mouse_pos)
+		if not (map_pos.x < 0 or map_pos.x >= grid_size.x or map_pos.y < 0 or map_pos.y >= grid_size.y):
+			if mouse_highlight and current_focus == -Vector2i.ONE:
+				if current_focus != -Vector2i.ONE and current_focus != map_pos:
+					highlight_tile(current_focus,last_highlight)
+				last_highlight = back_highlight_atlas.get(highlight_layer.get_cell_atlas_coords(map_pos),Vector2(4,4))
+				highlight_tile(map_pos,"target")
+				if mouse_tooltip:
+					CombatManager.combat_menu.tooltip.display_grid_space_tip(get_combat_tile(map_pos))
+				current_focus = map_pos
+			else:
+				if current_focus != -Vector2i.ONE and map_pos != current_focus:
+					if mouse_tooltip:
+						CombatManager.combat_menu.tooltip.hide_tip()
+					highlight_tile(current_focus,last_highlight)
+					current_focus = -Vector2i.ONE
+		else:
+			if current_focus != -Vector2i.ONE:
+					if mouse_tooltip:
+						CombatManager.combat_menu.tooltip.hide_tip()
+					highlight_tile(current_focus,last_highlight)
+					current_focus = -Vector2i.ONE
 
 func get_combat_tile(coords : Vector2i) -> CombatTile:
 	var array : Array = terrain_grid.get(coords.x)
@@ -153,4 +199,8 @@ func clear_highlight_layer():
 	for i in terrain_grid:
 		for j : CombatTile in i:
 			highlight_layer.set_cell(j.coords,0,highlight_atlas.get("neutral"))
+
+## Refer to highlight_atlas for valid type values
+func highlight_tile(coords : Vector2i, type : String):
+	highlight_layer.set_cell(coords,0,highlight_atlas.get(type,highlight_atlas.get("target")))
 #endregion

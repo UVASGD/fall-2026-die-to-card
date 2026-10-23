@@ -12,3 +12,4 @@ extends Resource
 @export var auto_action : CardAction
 @export var cost : int
 @export var unit_class : Unit.UNIT_CLASS = Unit.UNIT_CLASS.NONE
+@export var intent_slots : int = 1

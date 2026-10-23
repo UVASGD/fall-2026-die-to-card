@@ -103,13 +103,16 @@ func _phase_change(new_phase : PHASE):
 	match new_phase:
 		PHASE.DEPLOY:
 			combat_menu.unit_selection.visible = true
+			combat_grid.mouse_highlight = true
 		PHASE.COMMAND:
 			combat_menu.unit_selection.visible = false
 			combat_menu.card_manager.draw(player_draw)
 			combat_menu.card_manager.current_select_mode = CombatActionCardManager.SELECT_MODE.COMMAND
+			combat_grid.mouse_highlight = true
 		PHASE.EXECUTE:
 			combat_menu.card_manager.discard(combat_menu.card_manager.player_hand)
 			combat_menu.card_manager.current_select_mode = CombatActionCardManager.SELECT_MODE.NONE
+			combat_grid.mouse_highlight = false
 		PHASE.NONE:
 			combat_menu.unit_selection.visible = false
 			combat_menu.card_manager.discard(combat_menu.card_manager.player_hand)
