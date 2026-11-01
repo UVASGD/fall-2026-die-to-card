@@ -1,3 +1,21 @@
 [gd_resource type="Theme" format=3 uid="uid://b580btorccrsm"]
 
+[ext_resource type="FontFile" uid="uid://cwo45cd0i7is2" path="res://assets/ui/fonts/PixelOperator8.ttf" id="1_srpco"]
+[ext_resource type="Texture2D" uid="uid://cfhvhqm8q0ktc" path="res://assets/art/ui/table_gui.png" id="2_vf4fy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xadr"]
+atlas = ExtResource("2_vf4fy")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlxkr"]
+texture = SubResource("AtlasTexture_6xadr")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
 [resource]
+Button/fonts/font = ExtResource("1_srpco")
+Label/fonts/font = ExtResource("1_srpco")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_tlxkr")
+RichTextLabel/fonts/normal_font = ExtResource("1_srpco")

@@ -19,9 +19,9 @@ func _ready() -> void:
 
 func display_intent(intent_type : Unit.INTENT_TYPE, value : int):
 	var new_intent : IntentDisplay = intent_scene.instantiate()
-	new_intent.set_intent(intent_type,value)
-	intent_stack.append(intent_type)
 	v_box.add_child(new_intent)
+	new_intent.set_intent(intent_type,value)
+	intent_stack.append(new_intent)
 
 func clear_intent(intent_type : Unit.INTENT_TYPE, value : int):
 	for i : IntentDisplay in intent_stack:

@@ -10,6 +10,15 @@ atlas = ExtResource("1_ybj6x")
 region = Rect2(79, 60, 12, 12)
 filter_clip = true
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vvrqv"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moqmk"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_vvrqv")
+region = Rect2(99, 60, 12, 12)
+filter_clip = true
+
 [node name="DisplayAction" type="HBoxContainer" unique_id=760681176]
 offset_right = 94.0
 offset_bottom = 20.0
@@ -21,7 +30,9 @@ script = ExtResource("1_u671a")
 [node name="DiceButton" type="TextureButton" parent="." unique_id=1236701277]
 layout_mode = 2
 size_flags_vertical = 4
+toggle_mode = true
 texture_normal = SubResource("AtlasTexture_tlxkr")
+texture_pressed = SubResource("AtlasTexture_moqmk")
 
 [node name="ActionText" type="Label" parent="." unique_id=334802928]
 texture_filter = 3
@@ -36,4 +47,4 @@ text = "showing how large this box is hey maybe we should make this box just a b
 vertical_alignment = 1
 autowrap_mode = 3
 
-[connection signal="pressed" from="DiceButton" to="." method="_on_dice_button_pressed"]
+[connection signal="toggled" from="DiceButton" to="." method="_on_dice_button_toggled"]

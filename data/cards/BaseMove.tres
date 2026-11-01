@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ActionCard" format=3 uid="uid://c4j2pchtcbxf0"]
+
+[ext_resource type="Script" uid="uid://bcjawcoj5h5uk" path="res://combat/unit/card_action.gd" id="1_aufy0"]
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="2_pypcq"]
+[ext_resource type="Script" uid="uid://p3x30n8fugit" path="res://combat/card/action_card.gd" id="3_wyhfw"]
+
+[sub_resource type="Resource" id="Resource_s5h35"]
+script = ExtResource("1_aufy0")
+text = "Move forward 1"
+value = 1
+intent_type = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hehyl"]
+resource_local_to_scene = true
+atlas = ExtResource("2_pypcq")
+region = Rect2(51, 73, 26, 12)
+filter_clip = true
+
+[resource]
+script = ExtResource("3_wyhfw")
+name = "MOVE"
+portrait = SubResource("AtlasTexture_hehyl")
+card_class = 0
+actions = Dictionary[String, ExtResource("1_aufy0")]({
+"Move": SubResource("Resource_s5h35")
+})

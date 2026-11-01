@@ -2,6 +2,22 @@
 
 [ext_resource type="Theme" uid="uid://b580btorccrsm" path="res://assets/ui/base_theme.tres" id="1_7c6wt"]
 [ext_resource type="Script" uid="uid://dpl3rqwlp7ua2" path="res://overlay/menus/titlescreen_menu.gd" id="1_j0afb"]
+[ext_resource type="Texture2D" uid="uid://cfhvhqm8q0ktc" path="res://assets/art/ui/table_gui.png" id="3_b23ma"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b23ma"]
+resource_local_to_scene = true
+atlas = ExtResource("3_b23ma")
+region = Rect2(121, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xadr"]
+resource_local_to_scene = true
+atlas = ExtResource("3_b23ma")
+region = Rect2(170, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8ubg"]
+resource_local_to_scene = true
+atlas = ExtResource("3_b23ma")
+region = Rect2(170, 65, 48, 64)
 
 [node name="TitlescreenMenu" type="Control" unique_id=1012544821]
 layout_mode = 3
@@ -10,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7c6wt")
 script = ExtResource("1_j0afb")
 
 [node name="MainCenter" type="CenterContainer" parent="." unique_id=810527109]
@@ -19,37 +36,189 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7c6wt")
 
-[node name="MainVBox" type="VBoxContainer" parent="MainCenter" unique_id=1700977029]
+[node name="PanelContainer" type="PanelContainer" parent="MainCenter" unique_id=163616304]
 layout_mode = 2
 
-[node name="TitleMargins" type="MarginContainer" parent="MainCenter/MainVBox" unique_id=224265516]
+[node name="MarginContainer" type="MarginContainer" parent="MainCenter/PanelContainer" unique_id=744288043]
 layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MainVBox" type="VBoxContainer" parent="MainCenter/PanelContainer/MarginContainer" unique_id=1700977029]
+layout_mode = 2
+theme = ExtResource("1_7c6wt")
+
+[node name="TitleMargins" type="MarginContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox" unique_id=224265516]
+layout_mode = 2
+theme = ExtResource("1_7c6wt")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 10
 
-[node name="TitleLabel" type="Label" parent="MainCenter/MainVBox/TitleMargins" unique_id=613634464]
+[node name="TitleLabel" type="Label" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/TitleMargins" unique_id=613634464]
 layout_mode = 2
-text = "big title goes here"
+theme = ExtResource("1_7c6wt")
+theme_override_constants/outline_size = 10
+text = "Die to Card"
+horizontal_alignment = 1
 
-[node name="GameButton" type="Button" parent="MainCenter/MainVBox" unique_id=2125077789]
+[node name="OptionsMargins" type="MarginContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox" unique_id=19924798]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="Options" type="HBoxContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins" unique_id=419378550]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="PanelContainer3" type="PanelContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options" unique_id=1774430375]
+custom_minimum_size = Vector2(120, 100)
+custom_maximum_size = Vector2(120, -1)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer3" unique_id=1741794745]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer3/CenterContainer" unique_id=1726222195]
+layout_mode = 2
+
+[node name="GameButton" type="TextureButton" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer3/CenterContainer/VBoxContainer" unique_id=681018230]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_7c6wt")
-text = "do game"
+texture_normal = SubResource("AtlasTexture_b23ma")
 
-[node name="SettingsButton" type="Button" parent="MainCenter/MainVBox" unique_id=954779063]
+[node name="Do" type="Label" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer3/CenterContainer/VBoxContainer/GameButton" unique_id=1601602102]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.0
+offset_right = 18.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("1_7c6wt")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+text = "do"
+horizontal_alignment = 1
+
+[node name="Game" type="Label" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer3/CenterContainer/VBoxContainer" unique_id=1346021907]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("1_7c6wt")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+text = "game"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options" unique_id=585675725]
+custom_minimum_size = Vector2(120, 100)
+custom_maximum_size = Vector2(120, -1)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer" unique_id=302704255]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer/CenterContainer" unique_id=884029781]
+layout_mode = 2
+
+[node name="SettingsButton" type="TextureButton" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer/CenterContainer/VBoxContainer2" unique_id=545848978]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_7c6wt")
-text = "do settings"
+texture_normal = SubResource("AtlasTexture_6xadr")
 
-[node name="CreditsButton" type="Button" parent="MainCenter/MainVBox" unique_id=2010226965]
+[node name="Do" type="Label" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer/CenterContainer/VBoxContainer2/SettingsButton" unique_id=1944918851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -8.0
+offset_right = 52.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("1_7c6wt")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+text = "do"
+horizontal_alignment = 1
+
+[node name="Settings" type="Label" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer/CenterContainer/VBoxContainer2" unique_id=1829050806]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("1_7c6wt")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+text = "settings"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options" unique_id=541969404]
+custom_minimum_size = Vector2(120, 100)
+custom_maximum_size = Vector2(120, -1)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer2" unique_id=1216143260]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer2/CenterContainer" unique_id=1436804016]
+layout_mode = 2
+
+[node name="CreditsButton" type="TextureButton" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer2/CenterContainer/VBoxContainer3" unique_id=403270181]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_7c6wt")
-text = "do credits"
+texture_normal = SubResource("AtlasTexture_t8ubg")
 
-[connection signal="pressed" from="MainCenter/MainVBox/GameButton" to="." method="_on_game_button_pressed"]
+[node name="Do" type="Label" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer2/CenterContainer/VBoxContainer3/CreditsButton" unique_id=1403981363]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -8.0
+offset_right = 22.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("1_7c6wt")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+text = "do"
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer2/CenterContainer/VBoxContainer3" unique_id=465560948]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("1_7c6wt")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+text = "credits"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MainCenter/PanelContainer/MarginContainer/MainVBox/OptionsMargins/Options/PanelContainer3/CenterContainer/VBoxContainer/GameButton" to="." method="_on_game_button_pressed"]

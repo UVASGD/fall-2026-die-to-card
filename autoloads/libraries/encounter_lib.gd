@@ -14,5 +14,5 @@ func retrieve_encounter(encounter_name : StringName) -> String:
 	var encounter_uid : String = ENCOUNTERS.get(encounter_name)
 	if encounter_uid == null:
 		print("failure to retrieve encounter")
-		return "uid://dg14c5hfapaia"
+		return "uid://bo20t23xmgyy6"
 	return encounter_uid

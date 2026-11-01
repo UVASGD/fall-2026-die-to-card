@@ -9,4 +9,4 @@ combat_grid = NodePath("CombatGrid")
 is_combat = true
 
 [node name="CombatGrid" parent="." unique_id=1915692035 instance=ExtResource("2_ihiun")]
-position = Vector2(128, 80)
+position = Vector2(120, 56)
