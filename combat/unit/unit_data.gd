@@ -9,7 +9,10 @@ extends Resource
 @export var max_health : int
 @export var speed : int
 @export var defense : int
+##luck should be between 0 and 1, 1 being a 100% chance to get lucky
+@export var luck : float = 0.0
 @export var auto_action : CardAction
 @export var cost : int
 @export var unit_class : Unit.UNIT_CLASS = Unit.UNIT_CLASS.NONE
 @export var intent_slots : int = 1
+@export var is_enemy : bool = false

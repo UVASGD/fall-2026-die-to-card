@@ -28,14 +28,23 @@ enum UNIT_CLASS {
 #this is the display for the unit in the unit selection gui
 @export var select_icon : Texture2D = null #NOTE: we could also make this animation later...
 @export var intent_display : UnitIntentsDisplay = null
+@export var health_display : Label = null
 var health : int
 var location : Vector2i
 var statuses : Array[String] #TODO: make this work when I setup buffs/debuffs
-var enemy : bool = false
+var enemy : bool
 var intent_actions : Array[CardAction] = []
+
+func _ready() -> void:
+	health = unit_data.max_health
+	enemy = unit_data.is_enemy
+	if health_display != null:
+		health_display.text = str(health)
 
 func take_damage(damage : int):
 	var new_health = max(0,health - damage)
+	if health_display != null:
+		health_display.text = str(health)
 	if new_health == 0:
 		die()
 
@@ -45,6 +54,8 @@ func die(): #TODO: fill in death animation trigger
 
 func heal(healing: int):
 	health = min(unit_data.max_health,health + healing)
+	if health_display != null:
+		health_display.text = str(health)
 
 func deploy(coords : Vector2i):
 	CombatManager.combat_grid.add_child(self)
@@ -52,7 +63,6 @@ func deploy(coords : Vector2i):
 
 ##displays the intents you desire
 func set_intents(actions : Array[CardAction]) -> bool:
-	prints(actions, " : set intents")
 	if unit_data.intent_slots <= intent_actions.size():
 		return false
 	for i in actions:

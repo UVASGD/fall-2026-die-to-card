@@ -397,6 +397,7 @@ func command_unit(unit : Unit) -> void:
 				focus_actions.append(i)
 		if unit.set_intents(focus_actions):
 			deselect_cards(selected_cards,DESTINATION.DISCARD)
+			command_ready = false
 		else:
 			print("unit cannot hold this many (additional) intents")
 			#TODO: put up a ui thingy here letting people know of the issue
