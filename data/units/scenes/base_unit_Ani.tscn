@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c1k4qdu57wc08"]
+
+[ext_resource type="Script" uid="uid://oehp8wxrgocl" path="res://combat/unit/unit.gd" id="1_xnjxs"]
+[ext_resource type="Script" uid="uid://bvoibweo8641m" path="res://combat/unit/unit_data.gd" id="2_4vcfh"]
+[ext_resource type="Texture2D" uid="uid://dwcrxkxk8np4a" path="res://icon.svg" id="3_7whbt"]
+[ext_resource type="Texture2D" uid="uid://cihmvd7elv642" path="res://assets/art/unit/chip_sprite.png" id="4_7whbt"]
+[ext_resource type="PackedScene" uid="uid://b3yx6xnubrg0e" path="res://combat/unit/intent_display.tscn" id="4_pjxah"]
+[ext_resource type="Script" uid="uid://bcbasl5emgwx0" path="res://combat/unit/intent_display.gd" id="5_8fwp0"]
+[ext_resource type="PackedScene" uid="uid://bfhurlbwoqjdq" path="res://combat/unit/animation.tscn" id="6_4vcfh"]
+[ext_resource type="AnimationLibrary" uid="uid://dd53kogbc4h23" path="res://assets/animations/libraries/Chip_unit.tres" id="8_pjxah"]
+
+[sub_resource type="Resource" id="Resource_i6tik"]
+script = ExtResource("2_4vcfh")
+unit_uid = "uid://b0c8ob13otbsf"
+name = "base"
+max_health = 7
+speed = 7
+defense = 7
+metadata/_custom_type_script = "uid://bvoibweo8641m"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrl5x"]
+atlas = ExtResource("3_7whbt")
+region = Rect2(52, 70, 24, 24)
+
+[sub_resource type="Animation" id="Animation_8fwp0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8v6m5"]
+_data = {
+&"RESET": SubResource("Animation_8fwp0")
+}
+
+[node name="BaseUnit" type="Node2D" unique_id=793741451 node_paths=PackedStringArray("intent_display")]
+script = ExtResource("1_xnjxs")
+unit_data = SubResource("Resource_i6tik")
+select_icon = SubResource("AtlasTexture_mrl5x")
+intent_display = NodePath("IntentDisplay")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=668082281]
+position = Vector2(-1.3552527e-20, -3.5527137e-15)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("4_7whbt")
+hframes = 12
+
+[node name="IntentDisplay" parent="." unique_id=1846889741 instance=ExtResource("4_pjxah")]
+offset_left = 8.0
+offset_top = 14.0
+offset_right = 8.0
+offset_bottom = 14.0
+script = ExtResource("5_8fwp0")
+
+[node name="Animation" parent="." unique_id=1610089404 instance=ExtResource("6_4vcfh")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=824204779]
+libraries/ = SubResource("AnimationLibrary_8v6m5")
+libraries/Chip_unit = ExtResource("8_pjxah")

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://270wuvfcj3oe"]
+
+[ext_resource type="Texture2D" uid="uid://cihmvd7elv642" path="res://assets/art/unit/chip_sprite.png" id="1_l7r6t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pikxo"]
+atlas = ExtResource("1_l7r6t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcj04"]
+atlas = ExtResource("1_l7r6t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsc3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pikxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcj04")
+}],
+"loop": 2,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_foxjp"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_doji3"]
+_data = {
+&"new_animation": SubResource("Animation_foxjp")
+}
+
+[node name="UnitAni" type="Node2D" unique_id=1508199037]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2138949422]
+sprite_frames = SubResource("SpriteFrames_wsc3n")
+animation = &"idle"
+frame_progress = 0.32747495
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=741496853]
+libraries/ = SubResource("AnimationLibrary_doji3")

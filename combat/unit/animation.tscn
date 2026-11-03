@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bfhurlbwoqjdq"]
+
+[ext_resource type="Script" uid="uid://0jh23rneaost" path="res://combat/unit/animation.gd" id="1_fx88v"]
+[ext_resource type="AnimationLibrary" uid="uid://b6yxhl6s0nivb" path="res://assets/animations/libraries/default_unit.tres" id="2_15ehm"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dpgpm"]
+animation = &"default_unit/death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ymvjx"]
+animation = &"default_unit/do"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jfbka"]
+animation = &"default_unit/hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5bm46"]
+animation = &"default_unit/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8qky7"]
+animation = &"default_unit/move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wb6sv"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gls02"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1jwxw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6d0mv"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lubv3"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mq5v4"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2f6ne"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_drxnt"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_apqhs"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6xpo2"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wsc3n"]
+states/End/position = Vector2(979, 118)
+states/Start/position = Vector2(71, 118)
+states/default_unit_death/node = SubResource("AnimationNodeAnimation_dpgpm")
+states/default_unit_death/position = Vector2(764, 118)
+states/default_unit_do/node = SubResource("AnimationNodeAnimation_ymvjx")
+states/default_unit_do/position = Vector2(427, -3)
+states/default_unit_hurt/node = SubResource("AnimationNodeAnimation_jfbka")
+states/default_unit_hurt/position = Vector2(544, 118)
+states/default_unit_idle/node = SubResource("AnimationNodeAnimation_5bm46")
+states/default_unit_idle/position = Vector2(253, 118)
+states/default_unit_move/node = SubResource("AnimationNodeAnimation_8qky7")
+states/default_unit_move/position = Vector2(427, 237)
+transitions = ["default_unit_hurt", "default_unit_death", SubResource("AnimationNodeStateMachineTransition_wb6sv"), "default_unit_idle", "default_unit_hurt", SubResource("AnimationNodeStateMachineTransition_gls02"), "default_unit_idle", "default_unit_do", SubResource("AnimationNodeStateMachineTransition_1jwxw"), "default_unit_hurt", "default_unit_idle", SubResource("AnimationNodeStateMachineTransition_6d0mv"), "default_unit_do", "default_unit_move", SubResource("AnimationNodeStateMachineTransition_lubv3"), "default_unit_move", "default_unit_idle", SubResource("AnimationNodeStateMachineTransition_mq5v4"), "default_unit_idle", "default_unit_move", SubResource("AnimationNodeStateMachineTransition_2f6ne"), "default_unit_do", "default_unit_idle", SubResource("AnimationNodeStateMachineTransition_drxnt"), "Start", "default_unit_idle", SubResource("AnimationNodeStateMachineTransition_apqhs"), "default_unit_death", "End", SubResource("AnimationNodeStateMachineTransition_6xpo2")]
+graph_offset = Vector2(29, -53)
+
+[node name="AnimationTree" type="AnimationTree" unique_id=2069699936]
+active = false
+root_node = NodePath(".")
+tree_root = SubResource("AnimationNodeStateMachine_wsc3n")
+anim_player = NodePath("AnimationPlayer")
+script = ExtResource("1_fx88v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2123248030]
+libraries/default_unit = ExtResource("2_15ehm")

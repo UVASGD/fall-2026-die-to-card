@@ -1,0 +1,20 @@
+[gd_resource type="AnimationLibrary" format=3 uid="uid://b6yxhl6s0nivb"]
+
+[sub_resource type="Animation" id="Animation_ayl7j"]
+
+[sub_resource type="Animation" id="Animation_sfmx4"]
+
+[sub_resource type="Animation" id="Animation_gpyyk"]
+
+[sub_resource type="Animation" id="Animation_323hs"]
+
+[sub_resource type="Animation" id="Animation_ot34u"]
+
+[resource]
+_data = {
+&"death": SubResource("Animation_ayl7j"),
+&"do": SubResource("Animation_sfmx4"),
+&"hurt": SubResource("Animation_gpyyk"),
+&"idle": SubResource("Animation_323hs"),
+&"move": SubResource("Animation_ot34u")
+}
